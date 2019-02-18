@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.melnik.task01.model.comparator;
+package by.epam.javawebtraining.melnik.task01.comparator;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 

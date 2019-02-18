@@ -1,10 +1,11 @@
 package by.epam.javawebtraining.melnik.task01.model.entity;
 
+import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.ConstructorInvalidParametrException;
-import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
-import by.epam.javawebtraining.melnik.task01.model.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.exception.ConstructorInvalidParametrException;
+import by.epam.javawebtraining.melnik.task01.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Flat {
 
     private int flatsNumber;
     private int totalNumberOfHouseEquipment;
-    private List<HouseEquipment> allHouseEquipment;
+    private List <HouseEquipment> allHouseEquipment;
 
     public Flat() {
     }
@@ -40,27 +41,25 @@ public class Flat {
         return totalNumberOfHouseEquipment;
     }
 
-    public List<HouseEquipment> getAllHouseEquipment() {
+    public List <HouseEquipment> getAllHouseEquipment() {
         return allHouseEquipment;
     }
 
-    public void setFlatsNumber(int flatsNumber) {
+    public void setFlatsNumber(int flatsNumber) throws InvalidParameterException {
         if (flatsNumber <= 0) {
-            System.out.println("Invalid data, default parameter");
-            return;
+            throw new InvalidParameterException();
         }
         this.flatsNumber = flatsNumber;
     }
 
-    public void setTotalNumberOfHouseEquipment(int totalNumberOfHouseEquipment) {
+    public void setTotalNumberOfHouseEquipment(int totalNumberOfHouseEquipment) throws InvalidParameterException {
         if (totalNumberOfHouseEquipment < 0) {
-            System.out.println("Invalid data, default parameter");
-            return;
+            throw new InvalidParameterException();
         }
         this.totalNumberOfHouseEquipment = totalNumberOfHouseEquipment;
     }
 
-    public void setAllHouseEquipment(ArrayList<HouseEquipment> allHouseEquipment) {
+    public void setAllHouseEquipment(List<HouseEquipment> allHouseEquipment) {
         try {
             new CheckParametrOfHouseEquipment().IsNull(allHouseEquipment);
             new CheckParametrOfHouseEquipment().isEmpty(allHouseEquipment);
@@ -91,7 +90,7 @@ public class Flat {
     public String toString() {
         return "Flat{" +
                 "flatsNumber = " + flatsNumber +
-                ", totalNumberOfHouseEquipmen = " + totalNumberOfHouseEquipment +
+                ", totalNumberOfHouseEquipment = " + totalNumberOfHouseEquipment +
                 ", allHouseEquipment = " + allHouseEquipment +
                 '}';
     }

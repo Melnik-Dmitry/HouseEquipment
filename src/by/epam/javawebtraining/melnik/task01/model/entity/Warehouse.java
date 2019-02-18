@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.model.entity;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
-import by.epam.javawebtraining.melnik.task01.model.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class Warehouse {
         return warehouseStock;
     }
 
-    public void setWarehouseStock(ArrayList<HouseEquipment> warehouseStock) {
+    public void setWarehouseStock(List<HouseEquipment> warehouseStock) {
         try {
             new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
         } catch (NullLink nullLink) {

@@ -1,10 +1,13 @@
-package by.epam.javawebtraining.melnik.task01.model.action;
+package by.epam.javawebtraining.melnik.task01.model.logic;
 
+import by.epam.javawebtraining.melnik.task01.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.exception.NullLink;
 import by.epam.javawebtraining.melnik.task01.model.entity.Flat;
 import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
-import by.epam.javawebtraining.melnik.task01.model.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,9 @@ public class FlatOwner {
     }
 
     public void setSurname(String surname) {
+        if (surname.isEmpty()) {
+            new ConsolePrint().print("Surname cann't be empty");
+        }
         this.surname = surname;
     }
 
@@ -63,11 +69,15 @@ public class FlatOwner {
         return Objects.hash(surname, flat);
     }
 
-    public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, Warehouse warehouse) {
-        if (amountOfEquipments <= 0 || amountOfEquipments > warehouse.getWarehouseStock().size()) {
-
+    public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, Warehouse warehouse)
+            throws InvalidParameterException {
+        if (amountOfEquipments <= 0) {
+            throw new InvalidParameterException();
         }
-
+        int amountOfEquipmentsOnWarehouse = warehouse.getWarehouseStock().size();
+        if (amountOfEquipments > amountOfEquipmentsOnWarehouse) {
+            new ConsolePrint().print("There are only" + amountOfEquipmentsOnWarehouse + " on warehouse.");
+        }
 
         List<HouseEquipment> equipments = new ArrayList<>(amountOfEquipments);
         for (int i = 0; i < amountOfEquipments; i++) {
@@ -77,8 +87,13 @@ public class FlatOwner {
     }
 
     public void addAllHouseEquipmentInFlat(List<HouseEquipment> equipments) {
-        if (equipments == null) {
-
+        try {
+            new CheckParametrOfHouseEquipment().isEmpty(equipments);
+            new CheckParametrOfHouseEquipment().IsNull(equipments);
+        } catch (EmptyList emptyList) {
+            emptyList.printStackTrace();
+        } catch (NullLink nullLink) {
+            nullLink.printStackTrace();
         }
 
         for (HouseEquipment he : equipments) {

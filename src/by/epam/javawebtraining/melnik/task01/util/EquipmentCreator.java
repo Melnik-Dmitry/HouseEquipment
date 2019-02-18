@@ -1,12 +1,12 @@
-package by.epam.javawebtraining.melnik.task01.model.action;
+package by.epam.javawebtraining.melnik.task01.util;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.Microwave;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.Multicooker;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.Toast;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
-import by.epam.javawebtraining.melnik.task01.model.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.ArrayList;
 import java.util.List;

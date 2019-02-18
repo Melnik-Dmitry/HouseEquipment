@@ -1,6 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ConstructorInvalidParametrException;
+import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
 
@@ -13,12 +14,9 @@ public class Multicooker extends HouseEquipment {
 
     public Multicooker(double generalPower, double powerConsumption, int amountOfProgram) {
         super(generalPower, powerConsumption);
-        if (amountOfProgram <= 0 || amountOfProgram > 40){
-            try {
-                throw new ConstructorInvalidParametrException();
-            } catch (ConstructorInvalidParametrException e) {
-                e.printStackTrace();
-            }
+        if (amountOfProgram <= 0 || amountOfProgram > 40) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameter totalPower was set by default");
+            return;
         }
         this.amountOfProgram = amountOfProgram;
     }
@@ -27,10 +25,9 @@ public class Multicooker extends HouseEquipment {
         return amountOfProgram;
     }
 
-    public void setAmountOfProgram(int amountOfProgram) {
-        if (amountOfProgram <= 0 || amountOfProgram > 40){
-            System.out.println("Invalid data, default parameter");
-            return;
+    public void setAmountOfProgram(int amountOfProgram) throws InvalidParameterException {
+        if (amountOfProgram <= 0 || amountOfProgram > 40) {
+            throw new InvalidParameterException();
         }
         this.amountOfProgram = amountOfProgram;
     }

@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.melnik.task01.model.exception;
+package by.epam.javawebtraining.melnik.task01.exception;
 
 public class EmptyList extends Exception {
 

@@ -1,6 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ConstructorInvalidParametrException;
+import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
 
@@ -14,12 +15,14 @@ public class HouseEquipment {
     }
 
     public HouseEquipment(double totalPower, double powerConsumption) {
-        if ((totalPower <= 0 || totalPower > 2500) & (powerConsumption <= 0 || powerConsumption > 1800)) {
-            try {
-                throw new ConstructorInvalidParametrException();
-            } catch (ConstructorInvalidParametrException e) {
-                e.printStackTrace();
-            }
+
+        if (totalPower <= 0 || totalPower > 2500) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameter totalPower was set by default");
+            return;
+        }
+        if (powerConsumption <= 0 || powerConsumption > 1800) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameter powerConsumption was set by default");
+            return;
         }
 
         this.totalPower = totalPower;
@@ -39,18 +42,16 @@ public class HouseEquipment {
         return isTurningOn;
     }
 
-    public void setTotalPower(double totalPower) {
+    public void setTotalPower(double totalPower) throws InvalidParameterException {
         if (totalPower <= 0 || totalPower > 2500) {
-            System.out.println("Invalid data, default parameter");
-            return;
+            throw new InvalidParameterException();
         }
         this.totalPower = totalPower;
     }
 
-    public void setPowerConsumption(double powerConsumption) {
+    public void setPowerConsumption(double powerConsumption) throws InvalidParameterException {
         if (powerConsumption <= 0 || powerConsumption > 1800) {
-            System.out.println("Invalid data, default parameter");
-            return;
+            throw new InvalidParameterException();
         }
         this.powerConsumption = powerConsumption;
     }
