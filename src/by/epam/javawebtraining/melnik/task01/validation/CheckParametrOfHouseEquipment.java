@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.validation;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.exception.EmptyList;
-import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
 
 import java.util.List;
 

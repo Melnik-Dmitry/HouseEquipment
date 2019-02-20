@@ -1,6 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;

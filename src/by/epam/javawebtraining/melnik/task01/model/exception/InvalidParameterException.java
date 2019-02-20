@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.melnik.task01.exception;
+package by.epam.javawebtraining.melnik.task01.model.exception;
 
 public class InvalidParameterException extends Exception {
 

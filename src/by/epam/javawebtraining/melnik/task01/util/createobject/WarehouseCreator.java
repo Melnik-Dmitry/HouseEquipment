@@ -4,7 +4,7 @@ import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
 
 public class WarehouseCreator {
 
-    public Warehouse createNeededObject() {
+    public static Warehouse createWarehouse() {
         return  new Warehouse();
     }
 }

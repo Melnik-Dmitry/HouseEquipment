@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.model.logic;
 
-import by.epam.javawebtraining.melnik.task01.exception.EmptyList;
-import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
 import by.epam.javawebtraining.melnik.task01.model.entity.Flat;
 import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
@@ -22,11 +22,18 @@ public class FlatOwner {
     }
 
     public FlatOwner(String surname, Flat flat) {
+
+        if (surname.isEmpty()) {
+            new ConsolePrint().print("Surname cann't be empty");
+        }
+
         try {
             new CheckParametrOfHouseEquipment().IsNull(flat);
         } catch (NullLink nullLink) {
             nullLink.printStackTrace();
         }
+
+
         this.surname = surname;
         this.flat = flat;
     }
@@ -46,12 +53,9 @@ public class FlatOwner {
         this.surname = surname;
     }
 
-    public void setFlat(Flat flat) {
-        try {
-            new CheckParametrOfHouseEquipment().IsNull(flat);
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
-        }
+    public void setFlat(Flat flat) throws NullLink {
+
+        new CheckParametrOfHouseEquipment().IsNull(flat);
         this.flat = flat;
     }
 
@@ -70,10 +74,12 @@ public class FlatOwner {
     }
 
     public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, Warehouse warehouse)
-            throws InvalidParameterException {
+            throws InvalidParameterException, NullLink {
         if (amountOfEquipments <= 0) {
             throw new InvalidParameterException();
         }
+        new CheckParametrOfHouseEquipment().IsNull(warehouse);
+
         int amountOfEquipmentsOnWarehouse = warehouse.getWarehouseStock().size();
         if (amountOfEquipments > amountOfEquipmentsOnWarehouse) {
             new ConsolePrint().print("There are only" + amountOfEquipmentsOnWarehouse + " on warehouse.");

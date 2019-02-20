@@ -1,7 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.exception.ConstructorInvalidParametrException;
-import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
@@ -16,7 +15,7 @@ public class Microwave extends HouseEquipment {
     public Microwave(double generalPower, double powerConsumption, int innerVolume) {
         super(generalPower, powerConsumption);
         if (innerVolume != 17 && innerVolume != 20) {
-            new ConsolePrint ().print("Invalid parameter in constructor. Parameter totalPower was set by default");
+            new ConsolePrint ().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
         this.innerVolume = innerVolume;
@@ -27,7 +26,7 @@ public class Microwave extends HouseEquipment {
     }
 
     public void setInnerVolume(int innerVolume) throws InvalidParameterException {
-        if (innerVolume != 17 || innerVolume != 20) {
+        if (innerVolume != 17 && innerVolume != 20) {
            throw new InvalidParameterException();
         }
         this.innerVolume = innerVolume;

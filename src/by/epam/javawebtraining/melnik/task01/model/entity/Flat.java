@@ -1,11 +1,11 @@
 package by.epam.javawebtraining.melnik.task01.model.entity;
 
-import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.exception.ConstructorInvalidParametrException;
-import by.epam.javawebtraining.melnik.task01.exception.EmptyList;
-import by.epam.javawebtraining.melnik.task01.exception.NullLink;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +15,16 @@ public class Flat {
 
     private int flatsNumber;
     private int totalNumberOfHouseEquipment;
-    private List <HouseEquipment> allHouseEquipment;
+    private List<HouseEquipment> allHouseEquipment;
 
     public Flat() {
+        allHouseEquipment = new ArrayList<>();
     }
 
     public Flat(int flatsNumber, int totalNumberOfHouseEquipment) {
-        if (flatsNumber <= 0 & totalNumberOfHouseEquipment < 0) {
-            try {
-                throw new ConstructorInvalidParametrException();
-            } catch (ConstructorInvalidParametrException e) {
-                e.printStackTrace();
-            }
+        if (flatsNumber <= 0 && totalNumberOfHouseEquipment < 0) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            return;
         }
         this.flatsNumber = flatsNumber;
         this.totalNumberOfHouseEquipment = totalNumberOfHouseEquipment;
@@ -41,7 +39,7 @@ public class Flat {
         return totalNumberOfHouseEquipment;
     }
 
-    public List <HouseEquipment> getAllHouseEquipment() {
+    public List<HouseEquipment> getAllHouseEquipment() {
         return allHouseEquipment;
     }
 
@@ -57,6 +55,7 @@ public class Flat {
             throw new InvalidParameterException();
         }
         this.totalNumberOfHouseEquipment = totalNumberOfHouseEquipment;
+        allHouseEquipment = new ArrayList<>(totalNumberOfHouseEquipment);
     }
 
     public void setAllHouseEquipment(List<HouseEquipment> allHouseEquipment) {
@@ -69,6 +68,7 @@ public class Flat {
             emptyList.printStackTrace();
         }
         this.allHouseEquipment = allHouseEquipment;
+        totalNumberOfHouseEquipment = allHouseEquipment.size();
     }
 
     @Override

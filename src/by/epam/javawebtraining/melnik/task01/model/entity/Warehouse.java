@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
@@ -17,11 +17,13 @@ public class HouseEquipment {
     public HouseEquipment(double totalPower, double powerConsumption) {
 
         if (totalPower <= 0 || totalPower > 2500) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameter totalPower was set by default");
+            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
-        }
-        if (powerConsumption <= 0 || powerConsumption > 1800) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameter powerConsumption was set by default");
+        } else if (powerConsumption <= 0 || powerConsumption > 1800) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            return;
+        } else if (totalPower <= powerConsumption) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
 
