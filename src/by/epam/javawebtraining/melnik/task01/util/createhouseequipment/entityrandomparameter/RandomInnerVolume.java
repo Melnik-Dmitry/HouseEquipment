@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.melnik.task01.util.createentity.createhouseequipment.entityrandomparameter;
+package by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityrandomparameter;
 
 import java.util.Random;
 

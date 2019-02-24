@@ -1,13 +1,13 @@
-package by.epam.javawebtraining.melnik.task01.model.entity;
+package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+//extends Building
 public class Warehouse {
 
     private List<HouseEquipment> warehouseStock;
@@ -19,8 +19,8 @@ public class Warehouse {
     public Warehouse(List<HouseEquipment> warehouseStock) {
         try {
             new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
+        } catch (NullLinkException nullLinkException) {
+            nullLinkException.printStackTrace();
         }
         this.warehouseStock = warehouseStock;
     }
@@ -29,12 +29,9 @@ public class Warehouse {
         return warehouseStock;
     }
 
-    public void setWarehouseStock(List<HouseEquipment> warehouseStock) {
-        try {
-            new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
-        }
+    public void setWarehouseStock(List<HouseEquipment> warehouseStock) throws NullLinkException {
+        new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
+
         this.warehouseStock = warehouseStock;
     }
 

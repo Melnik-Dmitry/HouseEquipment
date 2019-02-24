@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.model.exception;
 
-public class EmptyList extends Exception {
+public class EmptyListException extends Exception {
 
-    public EmptyList() {
+    public EmptyListException() {
         super("List doesn't have any objects");
     }
 }

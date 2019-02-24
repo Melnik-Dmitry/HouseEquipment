@@ -7,6 +7,9 @@ import java.util.Objects;
 
 public class HouseEquipment {
 
+    public final static double MAX_TOTAL_POWER = 2500;
+    public final static double MAX_POWER_CONSUMPTION = MAX_TOTAL_POWER * 0.7;
+
     private double totalPower;
     private double powerConsumption;
     private boolean isTurningOn;
@@ -16,10 +19,10 @@ public class HouseEquipment {
 
     public HouseEquipment(double totalPower, double powerConsumption) {
 
-        if (totalPower <= 0 || totalPower > 2500) {
+        if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
             new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
-        } else if (powerConsumption <= 0 || powerConsumption > 1800) {
+        } else if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
             new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         } else if (totalPower <= powerConsumption) {
@@ -45,14 +48,14 @@ public class HouseEquipment {
     }
 
     public void setTotalPower(double totalPower) throws InvalidParameterException {
-        if (totalPower <= 0 || totalPower > 2500) {
+        if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
             throw new InvalidParameterException();
         }
         this.totalPower = totalPower;
     }
 
     public void setPowerConsumption(double powerConsumption) throws InvalidParameterException {
-        if (powerConsumption <= 0 || powerConsumption > 1800) {
+        if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
             throw new InvalidParameterException();
         }
         this.powerConsumption = powerConsumption;

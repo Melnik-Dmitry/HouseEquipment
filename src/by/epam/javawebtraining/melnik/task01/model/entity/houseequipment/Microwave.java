@@ -7,6 +7,9 @@ import java.util.Objects;
 
 public class Microwave extends HouseEquipment {
 
+    public static final int SMALL_VOLUME = 17;
+    public static final int BIG_VOLUME = 20;
+
     private int innerVolume;
 
     public Microwave() {
@@ -14,8 +17,8 @@ public class Microwave extends HouseEquipment {
 
     public Microwave(double generalPower, double powerConsumption, int innerVolume) {
         super(generalPower, powerConsumption);
-        if (innerVolume != 17 && innerVolume != 20) {
-            new ConsolePrint ().print("Invalid parameter in constructor. Parameters were set by default");
+        if (innerVolume != SMALL_VOLUME && innerVolume != BIG_VOLUME) {
+            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
         this.innerVolume = innerVolume;
@@ -26,8 +29,8 @@ public class Microwave extends HouseEquipment {
     }
 
     public void setInnerVolume(int innerVolume) throws InvalidParameterException {
-        if (innerVolume != 17 && innerVolume != 20) {
-           throw new InvalidParameterException();
+        if (innerVolume != SMALL_VOLUME && innerVolume != BIG_VOLUME) {
+            throw new InvalidParameterException();
         }
         this.innerVolume = innerVolume;
     }

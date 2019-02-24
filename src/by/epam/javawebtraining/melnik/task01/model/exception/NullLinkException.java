@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.model.exception;
 
-public class NullLink extends Exception {
+public class NullLinkException extends Exception {
 
-    public NullLink() {
+    public NullLinkException() {
         super("Link is null");
     }
 }

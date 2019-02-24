@@ -1,10 +1,10 @@
 package by.epam.javawebtraining.melnik.task01.model.logic;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
-import by.epam.javawebtraining.melnik.task01.model.entity.Flat;
-import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Warehouse;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
@@ -29,8 +29,8 @@ public class FlatOwner {
 
         try {
             new CheckParametrOfHouseEquipment().IsNull(flat);
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
+        } catch (NullLinkException nullLinkException) {
+            nullLinkException.printStackTrace();
         }
 
 
@@ -53,7 +53,7 @@ public class FlatOwner {
         this.surname = surname;
     }
 
-    public void setFlat(Flat flat) throws NullLink {
+    public void setFlat(Flat flat) throws NullLinkException {
 
         new CheckParametrOfHouseEquipment().IsNull(flat);
         this.flat = flat;
@@ -74,7 +74,7 @@ public class FlatOwner {
     }
 
     public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, Warehouse warehouse)
-            throws InvalidParameterException, NullLink {
+            throws InvalidParameterException, NullLinkException {
         if (amountOfEquipments <= 0) {
             throw new InvalidParameterException();
         }
@@ -96,10 +96,10 @@ public class FlatOwner {
         try {
             new CheckParametrOfHouseEquipment().isEmpty(equipments);
             new CheckParametrOfHouseEquipment().IsNull(equipments);
-        } catch (EmptyList emptyList) {
-            emptyList.printStackTrace();
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
+        } catch (EmptyListException emptyListException) {
+            emptyListException.printStackTrace();
+        } catch (NullLinkException nullLinkException) {
+            nullLinkException.printStackTrace();
         }
 
         for (HouseEquipment he : equipments) {

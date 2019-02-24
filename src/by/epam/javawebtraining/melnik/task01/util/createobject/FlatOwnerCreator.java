@@ -1,9 +1,9 @@
 package by.epam.javawebtraining.melnik.task01.util.createobject;
 
-import by.epam.javawebtraining.melnik.task01.model.entity.Flat;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
 import by.epam.javawebtraining.melnik.task01.model.logic.FlatOwner;
 
-public class FlatOwnerCrator {
+public class FlatOwnerCreator {
 
     public static FlatOwner createFlatOwner(){
         return new FlatOwner();

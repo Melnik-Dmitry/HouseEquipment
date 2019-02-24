@@ -1,8 +1,8 @@
-package by.epam.javawebtraining.melnik.task01.model.entity;
+package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.EmptyList;
+import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLink;
+import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
@@ -10,8 +10,8 @@ import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-public class Flat {
+//extends  Building
+public class Flat  {
 
     private int flatsNumber;
     private int totalNumberOfHouseEquipment;
@@ -62,10 +62,10 @@ public class Flat {
         try {
             new CheckParametrOfHouseEquipment().IsNull(allHouseEquipment);
             new CheckParametrOfHouseEquipment().isEmpty(allHouseEquipment);
-        } catch (NullLink nullLink) {
-            nullLink.printStackTrace();
-        } catch (EmptyList emptyList) {
-            emptyList.printStackTrace();
+        } catch (NullLinkException nullLinkException) {
+            nullLinkException.printStackTrace();
+        } catch (EmptyListException emptyListException) {
+            emptyListException.printStackTrace();
         }
         this.allHouseEquipment = allHouseEquipment;
         totalNumberOfHouseEquipment = allHouseEquipment.size();

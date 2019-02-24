@@ -1,10 +1,17 @@
 package by.epam.javawebtraining.melnik.task01.util.createobject;
 
-import by.epam.javawebtraining.melnik.task01.model.entity.Warehouse;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Warehouse;
+import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+
+import java.util.List;
 
 public class WarehouseCreator {
 
     public static Warehouse createWarehouse() {
-        return  new Warehouse();
+        return new Warehouse();
+    }
+
+    public static Warehouse createWarehouseWithParameter(List<HouseEquipment> warehouseStock) {
+        return new Warehouse(warehouseStock);
     }
 }
