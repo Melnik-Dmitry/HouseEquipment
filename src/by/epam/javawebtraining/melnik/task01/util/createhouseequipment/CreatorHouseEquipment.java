@@ -9,22 +9,22 @@ public class CreatorHouseEquipment {
 
     public static HouseEquipment createHouseEquipment(HouseEquipmentType houseEquipmentType) {
 
-        double totalPower = new RandomTotalPower().makeValueParameter();
+        double totalPower = new RandomTotalPower ().makeValueParameter ();
         double powerConsumption = 0.7 * totalPower;
-        int amountOfProgram = new RandomAmountOfProgram().makeValueParameter();
-        int innerVolume = new RandomInnerVolume().makeValueParameter();
+        int amountOfProgram = new RandomAmountOfProgram ().makeValueParameter ();
+        int innerVolume = new RandomInnerVolume ().makeValueParameter ();
 
         HouseEquipment houseEquipment = null;
 
         switch (houseEquipmentType) {
             case MICROWAWE:
-                houseEquipment = new Microwave(totalPower, powerConsumption, innerVolume);
+                houseEquipment = new Microwave ( totalPower, powerConsumption, innerVolume );
                 break;
             case MULTICOOKER:
-                houseEquipment = new Multicooker(totalPower, powerConsumption, amountOfProgram);
+                houseEquipment = new Multicooker ( totalPower, powerConsumption, amountOfProgram );
                 break;
             case TOAST:
-                houseEquipment = new Toast(totalPower, powerConsumption, false);
+                houseEquipment = new Toast ( totalPower, powerConsumption, false );
                 break;
         }
 

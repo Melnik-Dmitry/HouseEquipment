@@ -1,8 +1,8 @@
 package by.epam.javawebtraining.melnik.task01.model.logic.parametersearch.searchparameterpower;
 
 import by.epam.javawebtraining.melnik.task01.comparator.EquipmentComparator;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
@@ -13,20 +13,20 @@ import java.util.List;
 public class SearchParameterTotalEnergy implements SearchParameterPower<HouseEquipment> {
 
     @Override
-    public HouseEquipment takeEquipmentWithMinPower(Flat flat) throws NullLinkException, EmptyListException {
-        new CheckParametrOfHouseEquipment().IsNull(flat);
-        List<HouseEquipment> equipments = flat.getAllHouseEquipment();
-        new CheckParametrOfHouseEquipment().isEmpty(equipments);
+    public HouseEquipment takeEquipmentWithMinPower(Building building) throws NullLinkException, EmptyListException {
+        new CheckParametrOfHouseEquipment ().IsNull ( building );
+        List<HouseEquipment> equipments = building.getHouseEquipments ();
+        new CheckParametrOfHouseEquipment ().isEmpty ( equipments );
 
-        return Collections.min(equipments, new EquipmentComparator());
+        return Collections.min ( equipments, new EquipmentComparator () );
     }
 
     @Override
-    public HouseEquipment takeEquipmentWithMaxPower(Flat flat) throws NullLinkException, EmptyListException {
-        new CheckParametrOfHouseEquipment().IsNull(flat);
-        List<HouseEquipment> equipments = flat.getAllHouseEquipment();
-        new CheckParametrOfHouseEquipment().isEmpty(equipments);
+    public HouseEquipment takeEquipmentWithMaxPower(Building building) throws NullLinkException, EmptyListException {
+        new CheckParametrOfHouseEquipment ().IsNull ( building );
+        List<HouseEquipment> equipments = building.getHouseEquipments ();
+        new CheckParametrOfHouseEquipment ().isEmpty ( equipments );
 
-        return Collections.max(equipments, new EquipmentComparator());
+        return Collections.max ( equipments, new EquipmentComparator () );
     }
 }

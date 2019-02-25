@@ -7,50 +7,48 @@ import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEqui
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-//extends Building
-public class Warehouse {
+//
+public class Warehouse extends Building{
 
-    private List<HouseEquipment> warehouseStock;
+//    private List<HouseEquipment> warehouseStock;
 
     public Warehouse() {
-        warehouseStock = new ArrayList<>();
+//        warehouseStock = new ArrayList<>();
     }
 
     public Warehouse(List<HouseEquipment> warehouseStock) {
-        try {
-            new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
-        } catch (NullLinkException nullLinkException) {
-            nullLinkException.printStackTrace();
-        }
-        this.warehouseStock = warehouseStock;
+        super(warehouseStock);
+//        try {
+//            new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
+//        } catch (NullLinkException nullLinkException) {
+//            nullLinkException.printStackTrace();
+//        }
+//        this.warehouseStock = warehouseStock;
     }
 
-    public List<HouseEquipment> getWarehouseStock() {
-        return warehouseStock;
-    }
+//    public List<HouseEquipment> getWarehouseStock() {
+//        return warehouseStock;
+//    }
+//
+//    public void setWarehouseStock(List<HouseEquipment> warehouseStock) throws NullLinkException {
+//        new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
+//
+//        this.warehouseStock = warehouseStock;
+//    }
 
-    public void setWarehouseStock(List<HouseEquipment> warehouseStock) throws NullLinkException {
-        new CheckParametrOfHouseEquipment().IsNull(warehouseStock);
-
-        this.warehouseStock = warehouseStock;
-    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Warehouse)) return false;
-        Warehouse warehouse = (Warehouse) o;
-        return warehouseStock.equals(warehouse.warehouseStock);
+        return super.equals ( o );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(warehouseStock);
+        return super.hashCode ();
     }
 
     @Override
     public String toString() {
-        return "Warehouse{" +
-                "warehouseStock = " + warehouseStock + '}';
+        return "Warehouse{ " + super.toString () + "}";
     }
 }

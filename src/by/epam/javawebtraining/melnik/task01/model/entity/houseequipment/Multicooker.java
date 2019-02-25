@@ -15,9 +15,9 @@ public class Multicooker extends HouseEquipment {
     }
 
     public Multicooker(double generalPower, double powerConsumption, int amountOfProgram) {
-        super(generalPower, powerConsumption);
+        super ( generalPower, powerConsumption );
         if (amountOfProgram <= 0 || amountOfProgram > MAX_PROGRAM_AMOUNT) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameter totalPower was set by default");
+            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameter totalPower was set by default" );
             return;
         }
         this.amountOfProgram = amountOfProgram;
@@ -29,7 +29,7 @@ public class Multicooker extends HouseEquipment {
 
     public void setAmountOfProgram(int amountOfProgram) throws InvalidParameterException {
         if (amountOfProgram <= 0 || amountOfProgram > MAX_PROGRAM_AMOUNT) {
-            throw new InvalidParameterException();
+            throw new InvalidParameterException ();
         }
         this.amountOfProgram = amountOfProgram;
     }
@@ -38,19 +38,19 @@ public class Multicooker extends HouseEquipment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Multicooker)) return false;
-        if (!super.equals(o)) return false;
+        if (!super.equals ( o )) return false;
         Multicooker that = (Multicooker) o;
         return amountOfProgram == that.amountOfProgram;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), amountOfProgram);
+        return Objects.hash ( super.hashCode (), amountOfProgram );
     }
 
     @Override
     public String toString() {
         return "Multicooker{" + "amountOfProgram = " + amountOfProgram
-                + ", " + super.toString() + "}";
+                + ", " + super.toString () + "}";
     }
 }

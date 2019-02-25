@@ -20,13 +20,13 @@ public class HouseEquipment {
     public HouseEquipment(double totalPower, double powerConsumption) {
 
         if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
         } else if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
         } else if (totalPower <= powerConsumption) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
         }
 
@@ -49,14 +49,14 @@ public class HouseEquipment {
 
     public void setTotalPower(double totalPower) throws InvalidParameterException {
         if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
-            throw new InvalidParameterException();
+            throw new InvalidParameterException ();
         }
         this.totalPower = totalPower;
     }
 
     public void setPowerConsumption(double powerConsumption) throws InvalidParameterException {
         if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
-            throw new InvalidParameterException();
+            throw new InvalidParameterException ();
         }
         this.powerConsumption = powerConsumption;
     }
@@ -70,14 +70,14 @@ public class HouseEquipment {
         if (this == o) return true;
         if (!(o instanceof HouseEquipment)) return false;
         HouseEquipment that = (HouseEquipment) o;
-        return Double.compare(that.totalPower, totalPower) == 0 &&
-                Double.compare(that.powerConsumption, powerConsumption) == 0 &&
+        return Double.compare ( that.totalPower, totalPower ) == 0 &&
+                Double.compare ( that.powerConsumption, powerConsumption ) == 0 &&
                 isTurningOn == that.isTurningOn;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(totalPower, powerConsumption, isTurningOn);
+        return Objects.hash ( totalPower, powerConsumption, isTurningOn );
     }
 
     public void turnOn() {

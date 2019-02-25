@@ -4,5 +4,5 @@ import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 
 public interface CheckIsNull {
 
-    boolean IsNull (Object link) throws NullLinkException;
+    boolean IsNull(Object link) throws NullLinkException;
 }

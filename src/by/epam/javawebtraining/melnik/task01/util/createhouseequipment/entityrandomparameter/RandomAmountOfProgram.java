@@ -9,6 +9,6 @@ public class RandomAmountOfProgram implements RandomParameter {
 
     @Override
     public int makeValueParameter() {
-        return new Random().nextInt(MIN_PROGRAM_AMOUNT) + (MAX_PROGRAM_AMOUNT - MIN_PROGRAM_AMOUNT);
+        return new Random ().nextInt ( MIN_PROGRAM_AMOUNT ) + (MAX_PROGRAM_AMOUNT - MIN_PROGRAM_AMOUNT);
     }
 }

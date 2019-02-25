@@ -9,6 +9,6 @@ public class RandomTotalPower implements RandomParameter {
 
     @Override
     public int makeValueParameter() {
-        return (new Random().nextInt(MIN_TOTAL_POWER) + (MAX_TOTAL_POWER - MIN_TOTAL_POWER));
+        return (new Random ().nextInt ( MIN_TOTAL_POWER ) + (MAX_TOTAL_POWER - MIN_TOTAL_POWER));
     }
 }

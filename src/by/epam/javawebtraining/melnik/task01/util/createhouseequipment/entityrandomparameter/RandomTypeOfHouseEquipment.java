@@ -8,7 +8,7 @@ public class RandomTypeOfHouseEquipment {
 
     public static HouseEquipmentType makeHouseEquipmentType() {
 
-        switch (new Random().nextInt(HouseEquipmentType.values().length)) {
+        switch (new Random ().nextInt ( HouseEquipmentType.values ().length )) {
             case 0:
                 return HouseEquipmentType.MICROWAWE;
             case 1:

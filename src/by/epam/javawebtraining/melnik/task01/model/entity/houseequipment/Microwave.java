@@ -16,9 +16,9 @@ public class Microwave extends HouseEquipment {
     }
 
     public Microwave(double generalPower, double powerConsumption, int innerVolume) {
-        super(generalPower, powerConsumption);
+        super ( generalPower, powerConsumption );
         if (innerVolume != SMALL_VOLUME && innerVolume != BIG_VOLUME) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
         }
         this.innerVolume = innerVolume;
@@ -30,7 +30,7 @@ public class Microwave extends HouseEquipment {
 
     public void setInnerVolume(int innerVolume) throws InvalidParameterException {
         if (innerVolume != SMALL_VOLUME && innerVolume != BIG_VOLUME) {
-            throw new InvalidParameterException();
+            throw new InvalidParameterException ();
         }
         this.innerVolume = innerVolume;
     }
@@ -39,18 +39,18 @@ public class Microwave extends HouseEquipment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Microwave)) return false;
-        if (!super.equals(o)) return false;
+        if (!super.equals ( o )) return false;
         Microwave microwave = (Microwave) o;
         return innerVolume == microwave.innerVolume;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), innerVolume);
+        return Objects.hash ( super.hashCode (), innerVolume );
     }
 
     @Override
     public String toString() {
-        return "Microwave{" + "innerVolume = " + innerVolume + ", " + super.toString() + "} ";
+        return "Microwave{" + "innerVolume = " + innerVolume + ", " + super.toString () + "} ";
     }
 }

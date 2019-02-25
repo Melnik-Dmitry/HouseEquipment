@@ -10,7 +10,7 @@ public class Toast extends HouseEquipment {
     }
 
     public Toast(double generalPower, double powerConsumption, boolean isHasToastCooler) {
-        super(generalPower, powerConsumption);
+        super ( generalPower, powerConsumption );
         this.isHasToastCooler = isHasToastCooler;
     }
 
@@ -26,20 +26,20 @@ public class Toast extends HouseEquipment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Toast)) return false;
-        if (!super.equals(o)) return false;
+        if (!super.equals ( o )) return false;
         Toast toast = (Toast) o;
         return isHasToastCooler == toast.isHasToastCooler;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), isHasToastCooler);
+        return Objects.hash ( super.hashCode (), isHasToastCooler );
     }
 
     @Override
     public String toString() {
         return "Toast{" +
                 "isHasToastCooler = " + isHasToastCooler +
-                ", " + super.toString() + "} ";
+                ", " + super.toString () + "} ";
     }
 }

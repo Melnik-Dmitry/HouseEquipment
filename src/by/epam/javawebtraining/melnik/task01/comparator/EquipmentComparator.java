@@ -4,13 +4,13 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 
 import java.util.Comparator;
 
-public class EquipmentComparator implements Comparator <HouseEquipment> {
+public class EquipmentComparator implements Comparator<HouseEquipment> {
 
     @Override
     public int compare(HouseEquipment firstHE, HouseEquipment secondHE) {
-        if (firstHE.getTotalPower() == secondHE.getTotalPower()) {
+        if (firstHE.getTotalPower () == secondHE.getTotalPower ()) {
             return 0;
-        } else if (firstHE.getTotalPower() > secondHE.getTotalPower()) {
+        } else if (firstHE.getTotalPower () > secondHE.getTotalPower ()) {
             return 1;
         }
         return -1;

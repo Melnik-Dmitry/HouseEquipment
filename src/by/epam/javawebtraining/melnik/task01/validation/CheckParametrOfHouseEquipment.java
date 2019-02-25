@@ -11,15 +11,15 @@ public class CheckParametrOfHouseEquipment implements CheckIsNull, CheckIsEmpty<
     @Override
     public boolean IsNull(Object link) throws NullLinkException {
         if (link == null) {
-            throw new NullLinkException();
+            throw new NullLinkException ();
         }
         return true;
     }
 
     @Override
     public boolean isEmpty(List<HouseEquipment> list) throws EmptyListException {
-        if (list.isEmpty()) {
-            throw new EmptyListException();
+        if (list.isEmpty ()) {
+            throw new EmptyListException ();
         }
         return true;
     }
