@@ -2,7 +2,7 @@ package by.epam.javawebtraining.melnik.task01.util;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipmentType;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreatorHouseEquipment;
@@ -30,7 +30,7 @@ public class EquipmentCreatorOnWarehouse {
         return equipmentList;
     }
 
-    public static void addEquipmentOnWarehose(Building warehouse, int amountOfEquipment) throws InvalidParameterException {
+    public static void addEquipmentOnWarehose(ComercialBuilding warehouse, int amountOfEquipment) throws InvalidParameterException {
         try {
             new CheckParametrOfHouseEquipment ().IsNull ( warehouse );
         } catch (NullLinkException nullLinkException) {

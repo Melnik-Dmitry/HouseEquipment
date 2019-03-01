@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.logic.powercontrol;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
 import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
@@ -9,12 +9,12 @@ import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEqui
 public class PowerFlatEquipmentControl implements PowerControl {
 
     @Override
-    public double deemPowerConsumption(Building building) throws NullLinkException, EmptyListException {
-        new CheckParametrOfHouseEquipment ().IsNull ( building );
-        new CheckParametrOfHouseEquipment ().isEmpty ( building.getHouseEquipments () );
+    public double deemPowerConsumption(ComercialBuilding comercialBuilding) throws NullLinkException, EmptyListException {
+        new CheckParametrOfHouseEquipment ().IsNull ( comercialBuilding );
+        new CheckParametrOfHouseEquipment ().isEmpty ( comercialBuilding.getHouseEquipments () );
 
         double result = 0;
-        for (HouseEquipment he : building.getHouseEquipments ()) {
+        for (HouseEquipment he : comercialBuilding.getHouseEquipments ()) {
             if (he.getIsTurningOn ()) {
                 result += he.getPowerConsumption ();
             }
@@ -23,12 +23,12 @@ public class PowerFlatEquipmentControl implements PowerControl {
     }
 
     @Override
-    public double deemTotalPower(Building building) throws NullLinkException, EmptyListException {
-        new CheckParametrOfHouseEquipment ().IsNull ( building );
-        new CheckParametrOfHouseEquipment ().isEmpty ( building.getHouseEquipments () );
+    public double deemTotalPower(ComercialBuilding comercialBuilding) throws NullLinkException, EmptyListException {
+        new CheckParametrOfHouseEquipment ().IsNull ( comercialBuilding );
+        new CheckParametrOfHouseEquipment ().isEmpty ( comercialBuilding.getHouseEquipments () );
 
         double result = 0;
-        for (HouseEquipment he : building.getHouseEquipments ()) {
+        for (HouseEquipment he : comercialBuilding.getHouseEquipments ()) {
             result += he.getTotalPower ();
         }
         return result;

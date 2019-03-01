@@ -16,7 +16,7 @@ public class Microwave extends HouseEquipment {
     }
 
     public Microwave(double generalPower, double powerConsumption, int innerVolume) {
-        super ( generalPower, powerConsumption );
+        super ( generalPower, powerConsumption, HouseEquipmentType.MICROWAWE );
         if (innerVolume != SMALL_VOLUME && innerVolume != BIG_VOLUME) {
             new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;

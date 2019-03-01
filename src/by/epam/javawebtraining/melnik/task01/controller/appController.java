@@ -2,34 +2,37 @@ package by.epam.javawebtraining.melnik.task01.controller;
 
 import by.epam.javawebtraining.melnik.task01.comparator.EquipmentComparator;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.model.logic.FlatOwner;
+import by.epam.javawebtraining.melnik.task01.model.logic.ShopAssistant;
 import by.epam.javawebtraining.melnik.task01.model.logic.parametersearch.SearchParameter;
 import by.epam.javawebtraining.melnik.task01.model.logic.parametersearch.searchparameterpower.SearchParameterTotalEnergy;
 import by.epam.javawebtraining.melnik.task01.model.logic.powercontrol.PowerFlatEquipmentControl;
 import by.epam.javawebtraining.melnik.task01.model.logic.sorting.SortHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.util.EquipmentCreatorOnWarehouse;
-import by.epam.javawebtraining.melnik.task01.util.createobject.FlatCreator;
-import by.epam.javawebtraining.melnik.task01.util.createobject.FlatOwnerCreator;
-import by.epam.javawebtraining.melnik.task01.util.createobject.PrintCreator;
-import by.epam.javawebtraining.melnik.task01.util.createobject.WarehouseCreator;
+import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreatorHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityrandomparameter.RandomTypeOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.util.createobject.*;
 import by.epam.javawebtraining.melnik.task01.view.Print;
 
 public class appController {
     public static void main(String[] args) {
-        run ();
+        runEntityWithArrayList ();
+//        runEntityWithMassive ();
+//        ren ();
     }
 
 
-    public static void run() {
+    public static void runEntityWithArrayList() {
 
-        Building warehouse = WarehouseCreator.createWarehouse ();
-        Building flat = FlatCreator.createFlatWithParameters ( 10 );
-
+        ComercialBuilding warehouse = WarehouseCreator.createWarehouse ();
+        ComercialBuilding flat = null;
         try {
+            flat = FlatCreator.createFlatWithParameters ( 10 );
             FlatOwner flatOwner = FlatOwnerCreator.createFlatOwnerWithParameters ( "Melnik", flat );
             EquipmentCreatorOnWarehouse.addEquipmentOnWarehose ( warehouse, 6 );
 
@@ -94,5 +97,67 @@ public class appController {
         } catch (EmptyListException e) {
             e.printStackTrace ();
         }
+    }
+
+    public static void runEntityWithMassive() {
+
+        HouseEquipment[] first = new HouseEquipment[5];
+        for (int i = 0; i < first.length; i++) {
+            first[i] = CreatorHouseEquipment.createHouseEquipment
+                    ( RandomTypeOfHouseEquipment.makeHouseEquipmentType () );
+        }
+
+        Shop shop = null;
+        try {
+            shop = ShopCreator.createShopWithParameter ( first );
+        } catch (NullLinkException e) {
+            e.printStackTrace ();
+        }
+
+        Print printer = PrintCreator.createPrint ();
+        printer.print ( shop.toString () );
+        try {
+            printer.print ( (new SearchParameterTotalEnergy ().takeEquipmentWithMaxPower ( shop )).toString () );
+        } catch (NullLinkException e) {
+            e.printStackTrace ();
+        } catch (EmptyListException e) {
+            e.printStackTrace ();
+        }
+
+        HouseEquipment equipment = CreatorHouseEquipment.createHouseEquipment
+                (RandomTypeOfHouseEquipment.makeHouseEquipmentType () ); //HouseEquipmentType.MICROWAWE
+        try {
+            ShopAssistant.sortEquipmetForSection ( shop );
+
+            ShopAssistant.addEquipmentInSection ( shop, equipment);
+        } catch (NullLinkException e) {
+            e.printStackTrace ();
+        }
+        System.out.println ();
+
+//        HouseEquipment equipment = CreatorHouseEquipment.createHouseEquipment
+//                ( RandomTypeOfHouseEquipment.makeHouseEquipmentType () );
+//
+//        try {
+//            shop.setHouseEquipments ( Arrays.asList ( ConvertArray.addElementsInBuilding ( shop, equipment ) ) );
+//        } catch (NullLinkException e) {
+//            e.printStackTrace ();
+//        }
+//        System.out.println (shop);
+    }
+
+    public static void ren (){
+        HouseEquipment[] first = new HouseEquipment[5];
+        for (int i = 0; i < first.length; i++) {
+            first[i] = CreatorHouseEquipment.createHouseEquipment
+                    ( RandomTypeOfHouseEquipment.makeHouseEquipmentType () );
+        }
+        Shop shop = null;
+        try {
+            shop = ShopCreator.createShopWithParameter ( first );
+        } catch (NullLinkException e) {
+            e.printStackTrace ();
+        }
+        System.out.println ();
     }
 }

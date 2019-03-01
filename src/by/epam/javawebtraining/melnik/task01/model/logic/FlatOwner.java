@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.logic;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
 import by.epam.javawebtraining.melnik.task01.model.exception.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
@@ -16,19 +16,16 @@ import java.util.Objects;
 public class FlatOwner {
 
     private String surname;
-    private Building flat;
+    private ComercialBuilding flat;
 
     public FlatOwner() {
     }
 
-    public FlatOwner(String surname, Building flat) throws NullLinkException {
+    public FlatOwner(String surname, ComercialBuilding flat) throws NullLinkException {
 
         if (surname.isEmpty ()) {
             new ConsolePrint ().print ( "Surname cann't be empty" );
         }
-        new CheckParametrOfHouseEquipment ().IsNull ( flat );
-
-
         this.surname = surname;
         this.flat = flat;
     }
@@ -37,7 +34,7 @@ public class FlatOwner {
         return surname;
     }
 
-    public Building getFlat() {
+    public ComercialBuilding getFlat() {
         return flat;
     }
 
@@ -68,7 +65,7 @@ public class FlatOwner {
         return Objects.hash ( surname, flat );
     }
 
-    public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, Building warehouse)
+    public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, ComercialBuilding warehouse)
             throws InvalidParameterException, NullLinkException {
         if (amountOfEquipments <= 0) {
             throw new InvalidParameterException ();

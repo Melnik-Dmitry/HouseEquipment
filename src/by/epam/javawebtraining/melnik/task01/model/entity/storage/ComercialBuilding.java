@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Building {
+public class ComercialBuilding {
 
     private List<HouseEquipment> houseEquipments;
 
-    public Building() {
+    public ComercialBuilding() {
         houseEquipments = new ArrayList<> ();
     }
 
-    public Building(List<HouseEquipment> houseEquipments) {
+    public ComercialBuilding(List<HouseEquipment> houseEquipments) {
         if (houseEquipments == null) {
             new ConsolePrint ().print ( "Link cann't be null" );
         }
@@ -36,9 +36,9 @@ public class Building {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Building)) return false;
-        Building building = (Building) o;
-        return houseEquipments.equals ( building.houseEquipments );
+        if (!(o instanceof ComercialBuilding)) return false;
+        ComercialBuilding comercialBuilding = (ComercialBuilding) o;
+        return houseEquipments.equals ( comercialBuilding.houseEquipments );
     }
 
     @Override
@@ -51,10 +51,9 @@ public class Building {
 
         StringBuilder builder = new StringBuilder ( "amount equinments = " + houseEquipments.size () + '\n' );
 
-        for (HouseEquipment auto : houseEquipments) {
-            builder.append ( auto.toString () + '\n' );
+        for (HouseEquipment he : houseEquipments) {
+            builder.append ( he.toString () + '\n' );
         }
-//        builder.append ( '}' );
 
         return builder.toString ();
     }

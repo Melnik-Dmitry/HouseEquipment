@@ -10,7 +10,7 @@ public class Toast extends HouseEquipment {
     }
 
     public Toast(double generalPower, double powerConsumption, boolean isHasToastCooler) {
-        super ( generalPower, powerConsumption );
+        super ( generalPower, powerConsumption, HouseEquipmentType.TOAST );
         this.isHasToastCooler = isHasToastCooler;
     }
 

@@ -5,33 +5,36 @@ import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
 
-public class HouseEquipment {
+public class HouseEquipment implements Cloneable {
 
     public final static double MAX_TOTAL_POWER = 2500;
-    public final static double MAX_POWER_CONSUMPTION = MAX_TOTAL_POWER * 0.7;
+//    public final static double MAX_POWER_CONSUMPTION = MAX_TOTAL_POWER * 0.7;
 
     private double totalPower;
     private double powerConsumption;
+    private HouseEquipmentType type;
     private boolean isTurningOn;
 
     public HouseEquipment() {
     }
 
-    public HouseEquipment(double totalPower, double powerConsumption) {
+    public HouseEquipment(double totalPower, double powerConsumption, HouseEquipmentType type) {
 
         if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
             new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
-        } else if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
-            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
-            return;
-        } else if (totalPower <= powerConsumption) {
+        } else if (powerConsumption <= 0 || powerConsumption > totalPower * 0.7) {
             new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
             return;
         }
+//        else if (totalPower <= powerConsumption) {
+//            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
+//            return;
+//        }
 
         this.totalPower = totalPower;
         this.powerConsumption = powerConsumption;
+        this.type = type;
         this.isTurningOn = false;
     }
 
@@ -47,6 +50,10 @@ public class HouseEquipment {
         return isTurningOn;
     }
 
+    public HouseEquipmentType getType() {
+        return type;
+    }
+
     public void setTotalPower(double totalPower) throws InvalidParameterException {
         if (totalPower <= 0 || totalPower > MAX_TOTAL_POWER) {
             throw new InvalidParameterException ();
@@ -55,7 +62,7 @@ public class HouseEquipment {
     }
 
     public void setPowerConsumption(double powerConsumption) throws InvalidParameterException {
-        if (powerConsumption <= 0 || powerConsumption > MAX_POWER_CONSUMPTION) {
+        if (powerConsumption <= 0 || powerConsumption > totalPower * 0.7) {
             throw new InvalidParameterException ();
         }
         this.powerConsumption = powerConsumption;
