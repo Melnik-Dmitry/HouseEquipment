@@ -1,11 +1,17 @@
 package by.epam.javawebtraining.melnik.task01.util.convertarray;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 
 public class ConvertArray {
 
 
-    public static HouseEquipment[] addElementsInArray(HouseEquipment[] equipments, HouseEquipment... addedElements) {
+    public static HouseEquipment[] addElementsInArray(HouseEquipment[] equipments, HouseEquipment... addedElements)
+            throws NullLinkException {
+
+        if (equipments == null) {
+            throw new NullLinkException();
+        }
 
         HouseEquipment[] tempArray = new HouseEquipment[equipments.length + addedElements.length];
 

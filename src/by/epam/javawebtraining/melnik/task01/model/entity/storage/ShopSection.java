@@ -1,6 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 
 public class ShopSection {
 
@@ -10,7 +11,11 @@ public class ShopSection {
         equipments = new HouseEquipment[0];
     }
 
-    public ShopSection(HouseEquipment[] equipments) {
+    public ShopSection(HouseEquipment[] equipments) throws NullLinkException {
+
+        if (equipments == null) {
+            throw new NullLinkException();
+        }
         this.equipments = equipments;
     }
 
@@ -18,7 +23,11 @@ public class ShopSection {
         return equipments;
     }
 
-    public void setEquipments(HouseEquipment[] equipments) {
+    public void setEquipments(HouseEquipment[] equipments) throws NullLinkException {
+
+        if (equipments == null) {
+            throw new NullLinkException();
+        }
         this.equipments = equipments;
     }
 }

@@ -4,6 +4,7 @@ import by.epam.javawebtraining.melnik.task01.comparator.EquipmentComparator;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipmentType;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,7 +37,7 @@ public class SortHouseEquipmentTest {
     }
 
     @Test
-    public void testSortSomething() {
+    public void testSortSomething() throws NullLinkException {
         HouseEquipment[] sorted = {
                 building.getHouseEquipments ().get ( 2 ),
                 building.getHouseEquipments ().get ( 0 ),

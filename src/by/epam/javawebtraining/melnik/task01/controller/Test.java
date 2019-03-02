@@ -14,40 +14,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        HouseEquipment microwave = CreatorHouseEquipment.createHouseEquipment ( HouseEquipmentType.MICROWAWE );
-        HouseEquipment multicooker = CreatorHouseEquipment.createHouseEquipment ( HouseEquipmentType.MULTICOOKER );
-        HouseEquipment toast = CreatorHouseEquipment.createHouseEquipment ( HouseEquipmentType.TOAST );
-
-        List<HouseEquipment> firstListEquipments = new ArrayList<> ();
-        firstListEquipments.add ( microwave );
-        firstListEquipments.add ( multicooker );
-        firstListEquipments.add ( toast );
-
-
-
-        List<HouseEquipment> secondListEquipments = (List<HouseEquipment>)
-                ((ArrayList<HouseEquipment>) firstListEquipments).clone ();
-//
-//        List<HouseEquipment> secondListEquipments = new ArrayList<> ();
-//        secondListEquipments.add ( null );
-//        secondListEquipments.add ( null );
-//        secondListEquipments.add ( null );
-//
-//
-//
-//
-//
-//        Collections.copy( secondListEquipments, firstListEquipments);
-//        try {
-//            secondListEquipments.get ( 0 ).setTotalPower ( 100 );
-//        } catch (InvalidParameterException e) {
-//            e.printStackTrace ();
-//        }
-
-
-        System.out.println ();
-
-        ComercialBuilding building = new ComercialBuilding ( null );
-
+       ComercialBuilding building = new ComercialBuilding(null);
+        System.out.println();
     }
 }

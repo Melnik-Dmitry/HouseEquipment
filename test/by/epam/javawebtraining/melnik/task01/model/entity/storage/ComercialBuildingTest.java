@@ -2,7 +2,7 @@ package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipmentType;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreatorHouseEquipment;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,17 +44,17 @@ public class ComercialBuildingTest {
     }
 
     @Test
-    public void testDefaultConstructor (){
+    public void testDefaultConstructor () throws NullLinkException {
         assertNotEquals ( null, defaultBuilding.getHouseEquipments () );
     }
 
-//    @Test (expected = NullPointerException.class)
-//    public void testConstructorWithnull () throws NullPointerException{
-//        new ComercialBuilding ( testEquipment  );
-//    }
+    @Test (expected = NullLinkException.class)
+    public void testConstructorWithNull () throws NullLinkException {//throws NullPointerException
+        new ComercialBuilding ( testEquipment  ).getHouseEquipments();
+    }
 
     @Test
-    public void testGetHouseEquipments() {
+    public void testGetHouseEquipments() throws NullLinkException {
         assertEquals ( secondListEquipments, parametricBuilding.getHouseEquipments () );
     }
 

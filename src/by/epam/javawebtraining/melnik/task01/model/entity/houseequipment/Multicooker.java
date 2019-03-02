@@ -1,6 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
 import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.AmountOfProgramException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
@@ -27,9 +28,9 @@ public class Multicooker extends HouseEquipment {
         return amountOfProgram;
     }
 
-    public void setAmountOfProgram(int amountOfProgram) throws InvalidParameterException {
+    public void setAmountOfProgram(int amountOfProgram) throws AmountOfProgramException {
         if (amountOfProgram <= 0 || amountOfProgram > MAX_PROGRAM_AMOUNT) {
-            throw new InvalidParameterException ();
+            throw new AmountOfProgramException();
         }
         this.amountOfProgram = amountOfProgram;
     }

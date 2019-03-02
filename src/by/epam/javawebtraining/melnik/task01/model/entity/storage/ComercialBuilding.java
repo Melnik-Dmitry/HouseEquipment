@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
@@ -24,7 +24,10 @@ public class ComercialBuilding {
         this.houseEquipments = houseEquipments;
     }
 
-    public List<HouseEquipment> getHouseEquipments() {
+    public List<HouseEquipment> getHouseEquipments() throws NullLinkException {
+        if (this.houseEquipments == null){
+            throw new NullLinkException();
+        }
         return houseEquipments;
     }
 

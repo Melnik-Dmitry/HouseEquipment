@@ -5,11 +5,12 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.ShopSection;
-import by.epam.javawebtraining.melnik.task01.model.exception.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.util.convertarray.ConvertArray;
 import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ShopAssistant {
 
@@ -48,6 +49,11 @@ public class ShopAssistant {
 
             }
         }
+    }
+
+    private void prepear (List <HouseEquipment> equipments){
+
+
     }
 
     public static void addEquipmentInSection(ComercialBuilding shop, HouseEquipment... added) throws NullLinkException {
