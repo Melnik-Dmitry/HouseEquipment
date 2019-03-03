@@ -25,8 +25,9 @@ public class HouseEquipmentTest {
 
     @Test
     public void testFirstInvalidTotalPowerInConstructor() {
-        HouseEquipment defaultEquipment = new HouseEquipment();
-        HouseEquipment testEquipment = new HouseEquipment(-100, 100,
+        HouseEquipment defaultEquipment = new HouseEquipment(1000, 0,
+                HouseEquipmentType.MICROWAWE);
+        HouseEquipment testEquipment = new HouseEquipment(300, 1000 *0.7,
                 HouseEquipmentType.MICROWAWE);
 
         assertEquals(defaultEquipment, testEquipment);
@@ -35,7 +36,7 @@ public class HouseEquipmentTest {
     @Test
     public void testSecondInvalidTotalPowerInConstructor() {
         HouseEquipment defaultEquipment = new HouseEquipment();
-        HouseEquipment testEquipment = new HouseEquipment(2600, 100,
+        HouseEquipment testEquipment = new HouseEquipment(2600, 1000,
                 HouseEquipmentType.MICROWAWE);
 
         assertEquals(defaultEquipment, testEquipment);
@@ -44,7 +45,7 @@ public class HouseEquipmentTest {
     @Test
     public void testFirstInvalidPowerConsumptionInConstructor() {
         HouseEquipment defaultEquipment = new HouseEquipment();
-        HouseEquipment testEquipment = new HouseEquipment(1000, -100,
+        HouseEquipment testEquipment = new HouseEquipment(1000, 1000 * 0.4,
                 HouseEquipmentType.MICROWAWE);
 
         assertEquals(defaultEquipment, testEquipment);
@@ -53,7 +54,7 @@ public class HouseEquipmentTest {
     @Test
     public void testSecondInvalidPowerConsumptionInConstructor() {
         HouseEquipment defaultEquipment = new HouseEquipment();
-        HouseEquipment testEquipment = new HouseEquipment(1000, 800,
+        HouseEquipment testEquipment = new HouseEquipment(1000, 1000 * 0.8,
                 HouseEquipmentType.MICROWAWE);
 
         assertEquals(defaultEquipment, testEquipment);
@@ -61,23 +62,17 @@ public class HouseEquipmentTest {
 
     @Test
     public void getTotalPower() {
-        double expected = 1000;
-        assertEquals(expected, firstEquipment.getTotalPower(), 0.1);
-
+        assertEquals(1000, firstEquipment.getTotalPower(), 0.01);
     }
 
     @Test
     public void getPowerConsumption() {
-        double expected = 700;
-        assertEquals(expected, firstEquipment.getPowerConsumption(), 0.1);
-
+        assertEquals(700, firstEquipment.getPowerConsumption(), 0.01);
     }
 
     @Test
     public void getIsTurningOn() {
-        boolean expected = false;
-
-        assertEquals(expected, firstEquipment.getIsTurningOn());
+        assertEquals(false, firstEquipment.getIsTurningOn());
     }
 
     @Test
@@ -89,12 +84,12 @@ public class HouseEquipmentTest {
             totalEnergyEquipmentExeption.printStackTrace();
         }
 
-        assertEquals(expected, firstEquipment.getTotalPower(), 0.1);
+        assertEquals(expected, firstEquipment.getTotalPower(), 0.01);
     }
 
     @Test(expected = TotalEnergyEquipmentExeption.class)
     public void firstInvalidParameterSetTotalPower() throws TotalEnergyEquipmentExeption {
-        firstEquipment.setTotalPower(-100);
+        firstEquipment.setTotalPower(400);
     }
 
     @Test(expected = TotalEnergyEquipmentExeption.class)
@@ -104,25 +99,21 @@ public class HouseEquipmentTest {
 
     @Test
     public void setPowerConsumption() throws PowerConsumptionEquipmentException {
-        double expected = 600;
-
         firstEquipment.setPowerConsumption(600);
 
-        assertEquals(expected, firstEquipment.getPowerConsumption(), 0.1);
+        assertEquals(600, firstEquipment.getPowerConsumption(), 0.1);
     }
 
     @Test(expected = PowerConsumptionEquipmentException.class)
     public void firstInvalidSetPowewrConsumption() throws PowerConsumptionEquipmentException {
 
-        firstEquipment.setPowerConsumption(-100);
+        firstEquipment.setPowerConsumption(1000 * 0.4);
     }
 
     @Test(expected = PowerConsumptionEquipmentException.class)
     public void secondInvalidSetPowewrConsumption() throws PowerConsumptionEquipmentException {
 
-
-            firstEquipment.setPowerConsumption(800);
-
+        firstEquipment.setPowerConsumption(1000 * 0.8);
     }
 
     @Test
@@ -154,6 +145,11 @@ public class HouseEquipmentTest {
     @Test
     public void testEqualsWithNullLink() {
         assertNotEquals(true, firstEquipment.equals(null));
+    }
+
+    @Test
+    public void testEqualsDifferentObject() {
+        assertNotEquals(true, firstEquipment.equals(new Object()));
     }
 
     @Test

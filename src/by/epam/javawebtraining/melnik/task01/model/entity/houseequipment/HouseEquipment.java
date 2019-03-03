@@ -10,7 +10,8 @@ public class HouseEquipment implements Cloneable {
 
     public final static double MAX_TOTAL_POWER = 2500;
     public final static double MIN_TOTAL_POWER = 500;
-    public final static double CONSUMPTION_RATIO = 0.7;
+    public final static double MAX_CONSUMPTION_RATIO = 0.7;
+    public final static double MiX_CONSUMPTION_RATIO = 0.55;
 
     private double totalPower;
     private double powerConsumption;
@@ -25,14 +26,12 @@ public class HouseEquipment implements Cloneable {
         if (totalPower <= MIN_TOTAL_POWER || totalPower > MAX_TOTAL_POWER) {
             new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
-        } else if (powerConsumption <= MIN_TOTAL_POWER * CONSUMPTION_RATIO || powerConsumption > totalPower * CONSUMPTION_RATIO) {
+        } else if (powerConsumption < totalPower * MiX_CONSUMPTION_RATIO
+                || powerConsumption > totalPower * MAX_CONSUMPTION_RATIO) {
             new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
-//        else if (totalPower <= powerConsumption) {
-//            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameters were set by default" );
-//            return;
-//        }
+
         this.totalPower = totalPower;
         this.powerConsumption = powerConsumption;
         this.type = type;
@@ -63,8 +62,8 @@ public class HouseEquipment implements Cloneable {
     }
 
     public void setPowerConsumption(double powerConsumption) throws PowerConsumptionEquipmentException {
-        if (powerConsumption <= MIN_TOTAL_POWER * CONSUMPTION_RATIO
-                || powerConsumption > totalPower * CONSUMPTION_RATIO) {
+        if (powerConsumption < totalPower * MiX_CONSUMPTION_RATIO
+                || powerConsumption > totalPower * MAX_CONSUMPTION_RATIO) {
             throw new PowerConsumptionEquipmentException();
         }
         this.powerConsumption = powerConsumption;
