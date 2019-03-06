@@ -6,5 +6,7 @@ import java.util.Comparator;
 
 public interface Sort {
 
-  void sort(Building building); //, Comparator comparator
+  void increasingSort(Building building);
+
+  void descendingSort (Building building);
 }

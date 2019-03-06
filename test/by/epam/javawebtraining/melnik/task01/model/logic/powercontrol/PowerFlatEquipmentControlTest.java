@@ -31,13 +31,13 @@ public class PowerFlatEquipmentControlTest {
 //
 //    @Test
 //    public void deemPowerConsumption() throws NullLinkException, EmptyListException {
-//        PowerControl control = new PowerFlatEquipmentControl ();
+//        PowerControl control = new PowerBuildingEquipmentControl ();
 //        assertEquals ( 2420, control.deemPowerConsumption ( building ), 0.1 );
 //    }
 //
 //    @Test
 //    public void deemTotalPower() throws NullLinkException, EmptyListException {
-//        PowerControl control = new PowerFlatEquipmentControl ();
+//        PowerControl control = new PowerBuildingEquipmentControl ();
 //        assertEquals ( 3600, control.deemTotalPower ( building ), 0.1 );
 //    }
 }

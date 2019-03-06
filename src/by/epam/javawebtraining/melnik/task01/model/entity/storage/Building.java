@@ -64,6 +64,9 @@ public class Building {
         StringBuilder builder = new StringBuilder("amount equinments = " + amountOfEquipments() + '\n');
 
         for (HouseEquipment he : equipments) {
+            if (he == null){
+                continue;
+            }
             builder.append(he.toString() + '\n');
         }
 

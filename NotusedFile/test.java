@@ -30,7 +30,7 @@ public class test {
 //		  int[] rtr = new int[]{5, 2, 9, 1};
 //
 //
-//		  sort ( rtr );
+//		  increasingSort ( rtr );
 //		  System.out.println ();
 
 //		  HouseEquipment[] equipments = {

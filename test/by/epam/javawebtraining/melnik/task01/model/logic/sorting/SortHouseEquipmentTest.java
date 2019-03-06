@@ -69,7 +69,7 @@ public class SortHouseEquipmentTest {
 //                building.getEquipments ().get ( 1 )
 //        };
 //
-//        new SortHouseEquipment ().sort ( building, new EquipmentComparator () );
+//        new SortHouseEquipment ().increasingSort ( building, new EquipmentComparator () );
 //        HouseEquipment[] fromBuilding = (HouseEquipment[]) building.getEquipments ().toArray ();
 //
 //        assertArrayEquals ( sorted, fromBuilding );
