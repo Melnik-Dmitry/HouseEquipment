@@ -6,15 +6,15 @@ import java.util.Random;
 
 public class RandomTypeOfHouseEquipment {
 
-    public static HouseEquipmentType makeHouseEquipmentType() {
+	 public static HouseEquipmentType makeHouseEquipmentType() {
 
-        switch (new Random ().nextInt ( HouseEquipmentType.values ().length )) {
-            case 0:
-                return HouseEquipmentType.MICROWAWE;
-            case 1:
-                return HouseEquipmentType.MULTICOOKER;
-            default:
-                return HouseEquipmentType.TOAST;
-        }
-    }
+		  switch (new Random ().nextInt ( HouseEquipmentType.values ().length )) {
+				case 0:
+					 return HouseEquipmentType.MICROWAWE;
+				case 1:
+					 return HouseEquipmentType.MULTICOOKER;
+				default:
+					 return HouseEquipmentType.TOAST;
+		  }
+	 }
 }

@@ -4,16 +4,16 @@ import java.util.Random;
 
 public class RandomInnerVolume implements RandomParameter {
 
-    @Override
-    public int makeValueParameter() {
+	 @Override
+	 public int makeValueParameter() {
 
-        int innerVolume = 0;
+		  int innerVolume = 0;
 
-        if (new Random().nextBoolean()) {
-            innerVolume = 17;
-        } else {
-            innerVolume = 20;
-        }
-        return innerVolume;
-    }
+		  if (new Random ().nextBoolean ()) {
+				innerVolume = 17;
+		  } else {
+				innerVolume = 20;
+		  }
+		  return innerVolume;
+	 }
 }

@@ -1,17 +1,17 @@
 package by.epam.javawebtraining.melnik.task01.util.convertarray;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
 
 public class ConvertArray {
 
 
-    public static HouseEquipment[] addElementsInArray(HouseEquipment[] equipments, HouseEquipment... addedElements)
-            throws NullLinkException {
+    public static HouseEquipment[] addElementsInDynamicArray
+            (HouseEquipment[] equipments, HouseEquipment... addedElements) throws InvalidParameterException {
 
-        if (equipments == null) {
-            throw new NullLinkException();
-        }
+        new CheckBuildingParameters().IsNull(equipments);
 
         HouseEquipment[] tempArray = new HouseEquipment[equipments.length + addedElements.length];
 
@@ -27,24 +27,4 @@ public class ConvertArray {
         }
         return tempArray;
     }
-//
-//    public static HouseEquipment[] addElementsInBuilding(ComercialBuilding comemercialBuilding,
-//                                                         HouseEquipment... addedElements) {
-//
-//        HouseEquipment[] startArray = (HouseEquipment[]) comemercialBuilding.getHouseEquipments ().toArray ();
-//
-//        HouseEquipment[] tempArray = new HouseEquipment[startArray.length + addedElements.length];
-//
-//        for (int i = 0; i < tempArray.length; i++) {
-//            if (i < startArray.length) {
-//                tempArray[i] = startArray[i];
-//            }
-//        }
-//        for (int j = startArray.length; j < tempArray.length; j++) {
-//            int w = 0;
-//            tempArray[j] = addedElements[w];
-//            w++;
-//        }
-//        return tempArray;
-//    }
 }

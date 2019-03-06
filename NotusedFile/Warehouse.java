@@ -4,14 +4,14 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 
 import java.util.List;
 
-public class Warehouse extends ComercialBuilding {
+public class Warehouse extends Building {
 
     public Warehouse() {
     }
-
-    public Warehouse(List<HouseEquipment> warehouseStock) {
-        super(warehouseStock);
-    }
+//
+//    public Warehouse(List<HouseEquipment> warehouseStock) {
+//        super(warehouseStock);
+//    }
 
     @Override
     public boolean equals(Object o) {

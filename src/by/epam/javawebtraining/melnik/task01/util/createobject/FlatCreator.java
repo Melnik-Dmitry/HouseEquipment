@@ -1,7 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.util.createobject;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
-import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.FlatsNumberException;
 
 public class FlatCreator {

@@ -7,27 +7,27 @@ import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityran
 
 public class CreatorHouseEquipment {
 
-    public static HouseEquipment createHouseEquipment(HouseEquipmentType houseEquipmentType) {
+	 public static HouseEquipment createHouseEquipment(HouseEquipmentType houseEquipmentType) {
 
-        double totalPower = new RandomTotalPower ().makeValueParameter ();
-        double powerConsumption = 0.7 * totalPower;
-        int amountOfProgram = new RandomAmountOfProgram ().makeValueParameter ();
-        int innerVolume = new RandomInnerVolume ().makeValueParameter ();
+		  double totalPower = new RandomTotalPower ().makeValueParameter ();
+		  double powerConsumption = 0.7 * totalPower;
+		  int amountOfProgram = new RandomAmountOfProgram ().makeValueParameter ();
+		  int innerVolume = new RandomInnerVolume ().makeValueParameter ();
 
-        HouseEquipment houseEquipment = null;
+		  HouseEquipment houseEquipment = null;
 
-        switch (houseEquipmentType) {
-            case MICROWAWE:
-                houseEquipment = new Microwave ( totalPower, powerConsumption, innerVolume );
-                break;
-            case MULTICOOKER:
-                houseEquipment = new Multicooker ( totalPower, powerConsumption, amountOfProgram );
-                break;
-            case TOAST:
-                houseEquipment = new Toast ( totalPower, powerConsumption, false );
-                break;
-        }
+		  switch (houseEquipmentType) {
+				case MICROWAWE:
+					 houseEquipment = new Microwave ( totalPower, powerConsumption, innerVolume );
+					 break;
+				case MULTICOOKER:
+					 houseEquipment = new Multicooker ( totalPower, powerConsumption, amountOfProgram );
+					 break;
+				case TOAST:
+					 houseEquipment = new Toast ( totalPower, powerConsumption, false );
+					 break;
+		  }
 
-        return houseEquipment;
-    }
+		  return houseEquipment;
+	 }
 }

@@ -1,4 +1,4 @@
-package by.epam.javawebtraining.melnik.task01.model.exception.technikexeption;
+package by.epam.javawebtraining.melnik.task01.model.exception.technicexeption;
 
 import by.epam.javawebtraining.melnik.task01.model.exception.ProgectException;
 

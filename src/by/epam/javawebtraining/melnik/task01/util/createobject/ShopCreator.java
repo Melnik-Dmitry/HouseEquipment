@@ -2,8 +2,9 @@ package by.epam.javawebtraining.melnik.task01.util.createobject;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
-import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
 
 public class ShopCreator {
 
@@ -12,8 +13,9 @@ public class ShopCreator {
     }
 
     public static Shop createShopWithParameter(HouseEquipment[] houseEquipments)
-            throws NullLinkException {
-        new CheckParametrOfHouseEquipment ().IsNull ( houseEquipments );
+            throws  InvalidParameterException {
+
+        new CheckBuildingParameters().IsNull ( houseEquipments );
         return new Shop ( houseEquipments );
     }
 }

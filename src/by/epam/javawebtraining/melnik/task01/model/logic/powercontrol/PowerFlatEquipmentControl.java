@@ -1,22 +1,23 @@
 package by.epam.javawebtraining.melnik.task01.model.logic.powercontrol;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.EmptyListException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
-import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
 
 public class PowerFlatEquipmentControl implements PowerControl {
 
     @Override
-    public double deemPowerConsumption(ComercialBuilding comercialBuilding)
-            throws NullLinkException, EmptyListException {
+    public double deemPowerConsumption(Building building)
+            throws EmptyListException, InvalidParameterException {
 
-        new CheckParametrOfHouseEquipment().IsNull(comercialBuilding);
-        new CheckParametrOfHouseEquipment().isEmpty(comercialBuilding.getHouseEquipments());
+        new CheckBuildingParameters().IsNull(building);
+        new CheckBuildingParameters().isEmpty(building.getEquipments());
 
         double result = 0;
-        for (HouseEquipment he : comercialBuilding.getHouseEquipments()) {
+        for (HouseEquipment he : building.getEquipments()) {
             if (he.getIsTurningOn()) {
                 result += he.getPowerConsumption();
             }
@@ -25,14 +26,14 @@ public class PowerFlatEquipmentControl implements PowerControl {
     }
 
     @Override
-    public double deemTotalPower(ComercialBuilding comercialBuilding)
-            throws NullLinkException, EmptyListException {
+    public double deemTotalPower(Building building)
+            throws EmptyListException, InvalidParameterException {
 
-        new CheckParametrOfHouseEquipment().IsNull(comercialBuilding);
-        new CheckParametrOfHouseEquipment().isEmpty(comercialBuilding.getHouseEquipments());
+        new CheckBuildingParameters().IsNull(building);
+        new CheckBuildingParameters().isEmpty(building.getEquipments());
 
         double result = 0;
-        for (HouseEquipment he : comercialBuilding.getHouseEquipments()) {
+        for (HouseEquipment he : building.getEquipments()) {
             result += he.getTotalPower();
         }
         return result;

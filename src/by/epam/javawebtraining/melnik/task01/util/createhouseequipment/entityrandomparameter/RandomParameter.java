@@ -2,6 +2,6 @@ package by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityra
 
 public interface RandomParameter {
 
-    int makeValueParameter();
+	 int makeValueParameter();
 }
 

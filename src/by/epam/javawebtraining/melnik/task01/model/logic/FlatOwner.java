@@ -1,68 +1,59 @@
 package by.epam.javawebtraining.melnik.task01.model.logic;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.EmptyListException;
-import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.MethodParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.FlatOwnerSurnameException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
-import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.FlatOwnerSurnameException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.util.convertarray.ConvertArray;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class FlatOwner {
 
     private String surname;
-    private ComercialBuilding flat;
+    private Flat flat;
 
     public FlatOwner() {
     }
 
-    public FlatOwner(String surname, ComercialBuilding flat) throws NullLinkException {
+    public FlatOwner(String surname, Flat flat) {
 
-        if (surname.isEmpty()) {
-            new ConsolePrint().print("Surname cann't be empty");
-        } else if (flat == null) {
-            new ConsolePrint().print("Link cann't be null");
+        if (surname.isEmpty() || surname == null || flat == null) {
+            new ConsolePrint().print("Surname cann't be empty. Parameters were seted by default");
+            this.surname = "";
+            this.flat = new Flat();
+            return;
         }
         this.surname = surname;
         this.flat = flat;
     }
 
-    public String getSurname() throws FlatOwnerSurnameException, NullLinkException {
-        if (surname.isEmpty()) {
+    public String getSurname() throws FlatOwnerSurnameException {
+        if (surname.isEmpty() || surname == null) {
             throw new FlatOwnerSurnameException();
-        } else if (surname == null) {
-            throw new NullLinkException();
         }
         return surname;
     }
 
-    public ComercialBuilding getFlat() throws NullLinkException {
-        if (flat == null) {
-            throw new NullLinkException();
-        }
+    public Building getFlat() {
         return flat;
     }
 
-    public void setSurname(String surname) throws FlatOwnerSurnameException, NullLinkException {
-        if (surname.isEmpty()) {
+    public void setSurname(String surname) throws FlatOwnerSurnameException {
+        if (surname.isEmpty() || surname == null) {
             throw new FlatOwnerSurnameException();
-        } else if (surname == null) {
-            throw new NullLinkException();
         }
         this.surname = surname;
     }
 
-    public void setFlat(Flat flat) throws NullLinkException {
-        if (flat == null) {
-            throw new NullLinkException();
-        }
+    public void setFlat(Flat flat) throws InvalidParameterException {
+        new CheckBuildingParameters().IsNull(flat);
         this.flat = flat;
     }
 
@@ -80,45 +71,47 @@ public class FlatOwner {
         return Objects.hash(surname, flat);
     }
 
-    public List<HouseEquipment> buyHouseEquipmentFromWarehouse(int amountOfEquipments, ComercialBuilding warehouse)
-            throws InvalidParameterException, NullLinkException, MethodParameterException {
+    public HouseEquipment[] buyHouseEquipment(int amountOfEquipments, Building shop)
+            throws NullLinkException, MethodParameterException, InvalidParameterException {
+
 
         if (amountOfEquipments <= 0) {
             throw new MethodParameterException();
         }
-        new CheckParametrOfHouseEquipment().IsNull(warehouse);
+        new CheckBuildingParameters().IsNull(shop);
 
-        int amountOfEquipmentsOnWarehouse = warehouse.getHouseEquipments().size();
-        List<HouseEquipment> equipments = null;
+        int amountOfEquipmentsInShop = shop.amountOfEquipments();
+        HouseEquipment[] returnedEquipments = new HouseEquipment[0];
 
-        if (amountOfEquipments > amountOfEquipmentsOnWarehouse) {
-            new ConsolePrint().print("There are only" + amountOfEquipmentsOnWarehouse + " on warehouse.");
-
-            equipments = new ArrayList<>(amountOfEquipmentsOnWarehouse);
-
-            for (int i = 0; i < amountOfEquipmentsOnWarehouse; i++) {
-                equipments.add(warehouse.getHouseEquipments().get(i));
-            }
+        if (amountOfEquipments > amountOfEquipmentsInShop) {
+            new ConsolePrint().print("There are only" + amountOfEquipmentsInShop + " in shop.");
+//
+//            HouseEquipment[] temp = ConvertArray.addElementsInDynamicArray
+//                    (returnedEquipments, shop.getEquipments());
+//
+            returnedEquipments = ConvertArray.addElementsInDynamicArray
+                    (returnedEquipments, shop.getEquipments());
+            ;
         } else {
-            equipments = new ArrayList<>(amountOfEquipments);
-
             for (int i = 0; i < amountOfEquipments; i++) {
-                equipments.add(warehouse.getHouseEquipments().get(i));
+//                HouseEquipment[] temp = ConvertArray.addElementsInDynamicArray(returnedEquipments, shop.getEquipments());
+                returnedEquipments = ConvertArray.addElementsInDynamicArray(returnedEquipments, shop.getEquipments());
+                ;
             }
         }
 
-        return equipments;
+        return returnedEquipments;
     }
 
-    public void addAllHouseEquipmentInFlat(List<HouseEquipment> equipments)
-            throws EmptyListException, NullLinkException {
+    public void addAllHouseEquipmentInFlat(HouseEquipment[] equipments)
+            throws EmptyListException, NullLinkException, InvalidParameterException {
 
-        new CheckParametrOfHouseEquipment().isEmpty(equipments);
-        new CheckParametrOfHouseEquipment().IsNull(equipments);
+        new CheckBuildingParameters().isEmpty(equipments);
+        new CheckBuildingParameters().IsNull(equipments);
 
-        for (HouseEquipment he : equipments) {
-            flat.getHouseEquipments().add(he);
-        }
+
+        HouseEquipment[] temp = ConvertArray.addElementsInDynamicArray(flat.getEquipments(), equipments);
+        flat.setEquipments(temp);
     }
 
     @Override

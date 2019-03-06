@@ -1,33 +1,51 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
+
+import java.util.Arrays;
 
 public class ShopSection {
+    public static final int DEFAULT_CAPACITY = 0;
 
-    private HouseEquipment[] equipments;
+    private HouseEquipment[] equipmentsInSection;
 
     public ShopSection() {
-        equipments = new HouseEquipment[0];
+        equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
     }
 
-    public ShopSection(HouseEquipment[] equipments) throws NullLinkException {
+    public ShopSection(HouseEquipment[] equipmentsInSection) {
 
-        if (equipments == null) {
-            throw new NullLinkException();
+        if (equipmentsInSection == null) {
+            new ConsolePrint().print("Link cann't be null. Parameter was seted by default capacity");
+            this.equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
+            return;
         }
-        this.equipments = equipments;
+        this.equipmentsInSection = equipmentsInSection;
     }
 
-    public HouseEquipment[] getEquipments() {
-        return equipments;
+    public HouseEquipment[] getEquipmentsInSection() {
+        return equipmentsInSection;
     }
 
-    public void setEquipments(HouseEquipment[] equipments) throws NullLinkException {
+    public void setEquipmentsInSection(HouseEquipment[] equipmentsInSection) throws InvalidParameterException {
 
-        if (equipments == null) {
-            throw new NullLinkException();
-        }
-        this.equipments = equipments;
+        new CheckBuildingParameters().IsNull(equipmentsInSection);
+        this.equipmentsInSection = equipmentsInSection;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShopSection)) return false;
+        ShopSection section = (ShopSection) o;
+        return Arrays.equals(equipmentsInSection, section.equipmentsInSection);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(equipmentsInSection);
     }
 }

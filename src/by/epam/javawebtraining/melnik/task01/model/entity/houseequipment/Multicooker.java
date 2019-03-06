@@ -1,6 +1,5 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.AmountOfProgramException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 

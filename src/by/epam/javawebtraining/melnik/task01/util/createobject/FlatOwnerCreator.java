@@ -1,10 +1,11 @@
 package by.epam.javawebtraining.melnik.task01.util.createobject;
 
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.ComercialBuilding;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.FlatOwnerSurnameException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technikexeption.NullLinkException;
+import by.epam.javawebtraining.melnik.task01.model.entity.storage.Flat;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.FlatOwnerSurnameException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
 import by.epam.javawebtraining.melnik.task01.model.logic.FlatOwner;
-import by.epam.javawebtraining.melnik.task01.validation.CheckParametrOfHouseEquipment;
+import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
 
 public class FlatOwnerCreator {
 
@@ -12,15 +13,16 @@ public class FlatOwnerCreator {
         return new FlatOwner();
     }
 
-    public static FlatOwner createFlatOwnerWithParameters(String surname, ComercialBuilding flat)
-            throws NullLinkException, FlatOwnerSurnameException {
+    public static FlatOwner createFlatOwnerWithParameters(String surname, Flat flat)
+            throws FlatOwnerSurnameException, InvalidParameterException {
 
         if (surname.isEmpty()) {
             throw new FlatOwnerSurnameException();
-        } else if (surname == null) {
-            throw new NullLinkException();
         }
-        new CheckParametrOfHouseEquipment().IsNull(flat);
+
+        new CheckBuildingParameters().IsNull(surname);
+        new CheckBuildingParameters().IsNull(flat);
+
         return new FlatOwner(surname, flat);
     }
 }
