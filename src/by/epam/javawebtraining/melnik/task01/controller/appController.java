@@ -20,7 +20,7 @@ import by.epam.javawebtraining.melnik.task01.view.Print;
 public class appController {
     public static void main(String[] args) {
 
-		  run ();//
+		  run ();
     }
 
 
