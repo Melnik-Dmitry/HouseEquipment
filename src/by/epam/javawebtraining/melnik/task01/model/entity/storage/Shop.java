@@ -13,6 +13,7 @@ public class Shop extends Building {
     private ShopSection toastSection;
 
     public Shop() {
+        super();
         microwaveSection = new ShopSection();
         multicookerSection = new ShopSection();
         toastSection = new ShopSection();
