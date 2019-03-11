@@ -8,7 +8,7 @@ public class WarehouseCreator {
         return new Warehouse ();
     }
 
-//    public static Warehouse createWarehouseWithParameter(List<HouseEquipment> warehouseStock)
+//    public static Warehouse createWarehouseWithParameter(MyList<HouseEquipment> warehouseStock)
 //            throws NullLinkException {
 //
 //        new CheckBuildingParameters ().IsNull ( warehouseStock );

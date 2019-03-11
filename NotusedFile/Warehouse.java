@@ -9,7 +9,7 @@ public class Warehouse extends Building {
     public Warehouse() {
     }
 //
-//    public Warehouse(List<HouseEquipment> warehouseStock) {
+//    public Warehouse(MyList<HouseEquipment> warehouseStock) {
 //        super(warehouseStock);
 //    }
 

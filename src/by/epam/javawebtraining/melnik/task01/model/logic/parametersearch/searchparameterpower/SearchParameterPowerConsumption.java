@@ -4,8 +4,7 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.EmptyListException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
-import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 
 public class SearchParameterPowerConsumption implements SearchParameterPower<HouseEquipment> {
 

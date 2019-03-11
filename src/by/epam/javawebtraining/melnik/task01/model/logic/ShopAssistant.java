@@ -8,7 +8,7 @@ import by.epam.javawebtraining.melnik.task01.model.entity.storage.ShopSection;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArraysException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConvertArray;
-import by.epam.javawebtraining.melnik.task01.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 public class ShopAssistant {
@@ -66,7 +66,9 @@ public class ShopAssistant {
 	 }
 
 	 public static void addEquipmetInShop(Building shop, HouseEquipment... equipm)
-				throws EndArraysException {
+			 throws EndArraysException, InvalidParameterException {
+
+	 	new CheckBuildingParameters().IsNull(shop);
 
 		  HouseEquipment[] equipments = shop.getEquipments ();
 		  if (equipm.length > amountNullEementsInArray ( equipments )) {
@@ -82,7 +84,6 @@ public class ShopAssistant {
 						  return;
 					 }
 				}
-
 
 				if (equipments[equipments.length - 1] != null) {
 					 sortEquipmetForSection ( shop );

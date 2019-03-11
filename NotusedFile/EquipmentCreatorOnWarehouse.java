@@ -2,9 +2,9 @@ package by.epam.javawebtraining.melnik.task01.util;
 
 public class EquipmentCreatorOnWarehouse {
 
-//    private static List<HouseEquipment> createEquipmentList(int amountOfCreatedEquipment) {
+//    private static MyList<HouseEquipment> createEquipmentList(int amountOfCreatedEquipment) {
 
-//        List<HouseEquipment> equipmentList = new ArrayList<>(amountOfCreatedEquipment);
+//        MyList<HouseEquipment> equipmentList = new ArrayList<>(amountOfCreatedEquipment);
 //
 //        for (int i = 0; i < amountOfCreatedEquipment; i++) {
 //            HouseEquipmentType houseEquipmentType = RandomTypeOfHouseEquipment.makeHouseEquipmentType();

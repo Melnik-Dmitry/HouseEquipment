@@ -79,6 +79,8 @@ public class appController {
 				ShopAssistant.addEquipmetInShop ( shop, addedEquipment );
 		  } catch (EndArraysException e) {
 				e.printStackTrace ();
+		  } catch (InvalidParameterException e) {
+			  e.printStackTrace();
 		  }
 	 }
 
@@ -176,11 +178,19 @@ public class appController {
 		  Print printer = PrintCreator.createPrint ();
 		  printer.print ( shop.toString () );
 
-		  new SortHouseEquipment ().increasingSort ( shop );
-		  printer.print ( shop.toString () );
+		 try {
+			 new SortHouseEquipment ().increasingSort ( shop );
+		 } catch (InvalidParameterException e) {
+			 e.printStackTrace();
+		 }
+		 printer.print ( shop.toString () );
 
-		  new SortHouseEquipment ().descendingSort ( shop );
-		  printer.print ( shop.toString () );
+		 try {
+			 new SortHouseEquipment ().descendingSort ( shop );
+		 } catch (InvalidParameterException e) {
+			 e.printStackTrace();
+		 }
+		 printer.print ( shop.toString () );
 
 	 }
 }
