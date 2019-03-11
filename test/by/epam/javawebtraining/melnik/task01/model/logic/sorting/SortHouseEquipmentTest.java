@@ -8,78 +8,86 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import org.junit.runners.Parameterized.Parameter;
-
 
 import static org.junit.Assert.assertArrayEquals;
 
 @RunWith(value = Parameterized.class)
 public class SortHouseEquipmentTest {
 
-    private Building expected;
-    private Building building;
+	 private Building expectedIncrease;
+	 private Building expectedDescend;
+	 private Building building;
 
-    public SortHouseEquipmentTest(Building expected, Building building) {
-        this.expected = expected;
-        this.building = building;
-    }
+	 public SortHouseEquipmentTest(Building expectedIncrease, Building expectedDescend, Building building) {
+		  this.expectedIncrease = expectedIncrease;
+		  this.expectedDescend = expectedDescend;
+		  this.building = building;
+	 }
 
-    @Parameters
-    public static Building[][] data() {
+	 @Parameters
+	 public static Building[][] data() {
 
-        HouseEquipment microwave1 = new HouseEquipment(1000, 700,
-                HouseEquipmentType.MICROWAWE);
-        HouseEquipment multicooker1 = new HouseEquipment(2000, 1300,
-                HouseEquipmentType.MULTICOOKER);
-        HouseEquipment toast1 = new HouseEquipment(600, 420,
-                HouseEquipmentType.TOAST);
+		  HouseEquipment microwave1 = new HouseEquipment ( 1000, 700,
+																			HouseEquipmentType.MICROWAWE );
+		  HouseEquipment multicooker1 = new HouseEquipment ( 2000, 1300,
+																			  HouseEquipmentType.MULTICOOKER );
+		  HouseEquipment toast1 = new HouseEquipment ( 600, 420,
+																	  HouseEquipmentType.TOAST );
 
-        HouseEquipment[] firstArray = {toast1, multicooker1, microwave1};
-        Building firstBuilding = new Building(firstArray);
+		  HouseEquipment[] firstArray = {toast1, multicooker1, microwave1};
+		  Building firstBuilding = new Building ( firstArray );
 
-        HouseEquipment[] secondArray = {multicooker1, toast1, microwave1};
-        Building secondBuilding = new Building(secondArray);
+		  HouseEquipment[] secondArray = {multicooker1, toast1, microwave1};
+		  Building secondBuilding = new Building ( secondArray );
 
-        HouseEquipment[] thirdArray = {toast1, microwave1, multicooker1};
-        Building expectedIncreasingBuilding = new Building(thirdArray);
+		  HouseEquipment[] thirdArray = {toast1, microwave1, multicooker1};
+		  Building expectedIncreasingBuilding = new Building ( thirdArray );
 
-        HouseEquipment[] fourthArray = { multicooker1, microwave1,toast1};
-        Building expectedDescendingBuilding = new Building(fourthArray);
+		  HouseEquipment[] fourthArray = {multicooker1, microwave1, toast1};
+		  Building expectedDescendingBuilding = new Building ( fourthArray );
 
-//        HouseEquipment microwave2 = new HouseEquipment(1500, 1050,
-//                HouseEquipmentType.MICROWAWE);
-//        HouseEquipment multicooker2 = new HouseEquipment(1900, 1330,
-//                HouseEquipmentType.MULTICOOKER);
-//        HouseEquipment toast2 = new HouseEquipment(750, 525,
-//                HouseEquipmentType.TOAST);
-//        MyList<HouseEquipment> firstListEquipments2 = Arrays.asList(microwave2, multicooker2, toast2);
-//        Building building2 = new Building(firstListEquipments2);
+		  Building[][] data = {
+					 {expectedIncreasingBuilding, expectedDescendingBuilding, firstBuilding},
+					 {expectedIncreasingBuilding, expectedDescendingBuilding, secondBuilding}
+		  };
+		  return data;
+	 }
 
-        Building[][] data = {
-                {expectedIncreasingBuilding, firstBuilding},
-                {expectedIncreasingBuilding, secondBuilding},
-                {expectedDescendingBuilding, firstBuilding},
-                {expectedDescendingBuilding, secondBuilding}
-        };
-        return data;
-    }
-//
-//    @Parameter ()
-//    public Building [] fdd ();
+	 @Test
+	 public void testIncreasingSort() {
+		  Sort sorting = new SortHouseEquipment ();
 
-//    public Building [] firstSort ();
+		  try {
+				sorting.increasingSort ( building );
+		  } catch (InvalidParameterException e) {
+				e.printStackTrace ();
+		  }
 
+		  assertArrayEquals ( expectedIncrease.getEquipments (), building.getEquipments () );
+	 }
 
-    @Test
-    public void testIncreasingSort() {
-        Sort sorting = new SortHouseEquipment();
+	 @Test (expected = InvalidParameterException.class)
+	 public void testIncreasingSortWitNullLink() throws InvalidParameterException {
+		  Sort sorting = new SortHouseEquipment ();
+		  sorting.increasingSort ( null );
+	 }
 
-        try {
-            sorting.increasingSort(building);
-        } catch (InvalidParameterException e) {
-            e.printStackTrace();
-        }
+	 @Test
+	 public void testDescendingSort () {
+		  Sort sorting = new SortHouseEquipment ();
 
-        assertArrayEquals(expected.getEquipments(), building.getEquipments());
-    }
+		  try {
+				sorting.descendingSort ( building );
+		  } catch (InvalidParameterException e) {
+				e.printStackTrace ();
+		  }
+
+		  assertArrayEquals ( expectedDescend.getEquipments (), building.getEquipments () );
+	 }
+
+	 @Test (expected = InvalidParameterException.class)
+	 public void testDescendingSortWitNullLink() throws InvalidParameterException {
+		  Sort sorting = new SortHouseEquipment ();
+		  sorting.descendingSort ( null );
+	 }
 }

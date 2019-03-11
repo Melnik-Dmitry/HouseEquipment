@@ -7,15 +7,15 @@ import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityran
 
 public class CreateArrayHouseEquipment {
 
-	 public static HouseEquipment[] createArrayOfHouseEquipment(int arraysLength)
+	 public static HouseEquipment[] createArrayOfHouseEquipment(int arrayLength)
 			 throws MethodParameterException {
 
-		  if (arraysLength <= 0) {
+		  if (arrayLength <= 0) {
 				throw new MethodParameterException();
 		  }
 
-		  HouseEquipment[] array = new HouseEquipment[arraysLength];
-		  for (int i = 0; i < arraysLength; i++) {
+		  HouseEquipment[] array = new HouseEquipment[arrayLength];
+		  for (int i = 0; i < arrayLength; i++) {
 				array[i] = CreatorHouseEquipment.createHouseEquipment
 						  ( RandomTypeOfHouseEquipment.makeHouseEquipmentType () );
 		  }

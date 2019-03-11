@@ -17,7 +17,7 @@ public class Multicooker extends HouseEquipment {
     public Multicooker(double generalPower, double powerConsumption, int amountOfProgram) {
         super ( generalPower, powerConsumption, HouseEquipmentType.MULTICOOKER );
         if (amountOfProgram <= 0 || amountOfProgram > MAX_PROGRAM_AMOUNT) {
-            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameter totalPower was set by default" );
+//            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameter totalPower was set by default" );
             return;
         }
         this.amountOfProgram = amountOfProgram;

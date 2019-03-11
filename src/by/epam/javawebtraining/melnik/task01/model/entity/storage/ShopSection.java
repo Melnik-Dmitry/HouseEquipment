@@ -19,7 +19,7 @@ public class ShopSection {
     public ShopSection(HouseEquipment[] equipmentsInSection) {
 
         if (equipmentsInSection == null) {
-            new ConsolePrint().print("Link cann't be null. Parameter was seted by default capacity");
+//            new ConsolePrint().print("Link cann't be null. Parameter was seted by default capacity");
             this.equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
             return;
         }

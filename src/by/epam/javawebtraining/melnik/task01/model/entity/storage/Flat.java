@@ -17,7 +17,7 @@ public class Flat extends Building {
     public Flat(int flatsNumber) {
         super();
         if (flatsNumber < 0) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+//            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
         this.flatsNumber = flatsNumber;

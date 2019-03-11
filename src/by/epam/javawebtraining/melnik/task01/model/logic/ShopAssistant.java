@@ -65,7 +65,7 @@ public class ShopAssistant {
 		  return result;
 	 }
 
-	 public static void addEquipmetInShop(Building shop, HouseEquipment... equipm)
+	 public static void addEquipmetInBuilding(Building shop, HouseEquipment... equipm)
 			 throws EndArraysException, InvalidParameterException {
 
 	 	new CheckBuildingParameters().IsNull(shop);

@@ -8,15 +8,15 @@ import java.util.Comparator;
 public class EquipmentComparator implements Comparator<HouseEquipment> {
 
 	 @Override
-	 public int compare(HouseEquipment firstHE, HouseEquipment secondHE) {
+	 public int compare(HouseEquipment first, HouseEquipment second) {
 
-		  if (firstHE == null || secondHE == null) {
+		  if (first == null || second == null) {
 				try {
 					 throw new NullLinkException ();
 				} catch (NullLinkException e) {
 					 e.printStackTrace ();
 				}
 		  }
-		  return (int) (firstHE.getTotalPower () - secondHE.getTotalPower ());
+		  return (int) (first.getTotalPower () - second.getTotalPower ());
 	 }
 }

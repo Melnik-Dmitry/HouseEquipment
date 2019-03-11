@@ -26,7 +26,7 @@ public class FlatOwner {
     public FlatOwner(String surname, Building flat) {
 
         if (surname == null || surname.isEmpty() || flat == null) {
-            new ConsolePrint().print("Surname cann't be empty. Parameters were seted by default");
+//            new ConsolePrint().print("Surname cann't be empty. Parameters were seted by default");
             this.surname = "";
             this.flat = new Flat();
             return;

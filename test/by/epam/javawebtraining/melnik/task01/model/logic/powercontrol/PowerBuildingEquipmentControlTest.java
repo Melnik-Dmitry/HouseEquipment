@@ -13,12 +13,12 @@ import org.junit.runners.Parameterized.Parameters;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(value = Parameterized.class)
-public class PowerFlatEquipmentControlTest {
+public class PowerBuildingEquipmentControlTest {
 
     private Double expected;
     private Building building;
 
-    public PowerFlatEquipmentControlTest(Double expected, Building building) {
+    public PowerBuildingEquipmentControlTest(Double expected, Building building) {
         this.expected = expected;
         this.building = building;
     }
@@ -54,6 +54,11 @@ public class PowerFlatEquipmentControlTest {
     @Test
     public void testDeemPowerConsumptionAllTurningOff() {
         PowerControl control = new PowerBuildingEquipmentControl();
+
+        for (int i = 0; i < building.getEquipments().length; i++) {
+            building.getEquipments()[i].turnOff();
+        }
+
         try {
             assertEquals(0, control.deemPowerConsumption(building), 0.1);
         } catch (EmptyListException e) {

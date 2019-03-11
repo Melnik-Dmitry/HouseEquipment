@@ -24,11 +24,11 @@ public class HouseEquipment implements Cloneable {
     public HouseEquipment(double totalPower, double powerConsumption, HouseEquipmentType type) {
 
         if (totalPower <= MIN_TOTAL_POWER || totalPower > MAX_TOTAL_POWER) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+//            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         } else if (powerConsumption < totalPower * MiX_CONSUMPTION_RATIO
                 || powerConsumption > totalPower * MAX_CONSUMPTION_RATIO) {
-            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
+//            new ConsolePrint().print("Invalid parameter in constructor. Parameters were set by default");
             return;
         }
 

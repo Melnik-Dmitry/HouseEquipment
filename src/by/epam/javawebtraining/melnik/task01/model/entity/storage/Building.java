@@ -18,7 +18,7 @@ public class Building {
 
     public Building(HouseEquipment[] equipments) {
         if (equipments == null) {
-            new ConsolePrint().print("Link cann't be null. Parameter was seted by default capacity");
+//            new ConsolePrint().print("Link cann't be null. Parameter was seted by default capacity");
             this.equipments = new HouseEquipment[DEFAULT_CAPACITY];
             return;
         }
