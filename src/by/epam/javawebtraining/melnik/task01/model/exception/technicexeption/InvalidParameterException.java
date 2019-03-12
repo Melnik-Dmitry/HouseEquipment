@@ -1,11 +1,17 @@
 package by.epam.javawebtraining.melnik.task01.model.exception.technicexeption;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ProgectException;
+import by.epam.javawebtraining.melnik.task01.model.exception.ProjectException;
 
-public class InvalidParameterException extends ProgectException {
+public class InvalidParameterException extends ProjectException {
+
+//    "The specified parameter is not valid"
 
     public InvalidParameterException() {
-        super ( "The specified parameter is not valid" );
+        super ( );
+    }
+
+    public InvalidParameterException(String message) {
+        super ( message );
     }
 
     public InvalidParameterException(NullLinkException cause) {

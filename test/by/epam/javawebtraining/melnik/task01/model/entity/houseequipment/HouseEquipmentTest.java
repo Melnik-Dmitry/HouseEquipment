@@ -1,7 +1,7 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.houseequipment;
 
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.PowerConsumptionEquipmentException;
-import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.TotalEnergyEquipmentExeption;
+import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.TotalEnergyEquipmentException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,20 +79,20 @@ public class HouseEquipmentTest {
 		  double expected = 900;
 		  try {
 				firstEquipment.setTotalPower ( 900 );
-		  } catch (TotalEnergyEquipmentExeption totalEnergyEquipmentExeption) {
-				totalEnergyEquipmentExeption.printStackTrace ();
+		  } catch (TotalEnergyEquipmentException totalEnergyEquipmentException) {
+				totalEnergyEquipmentException.printStackTrace ();
 		  }
 
 		  assertEquals ( expected, firstEquipment.getTotalPower (), 0.01 );
 	 }
 
-	 @Test(expected = TotalEnergyEquipmentExeption.class)
-	 public void firstInvalidParameterSetTotalPower() throws TotalEnergyEquipmentExeption {
+	 @Test(expected = TotalEnergyEquipmentException.class)
+	 public void firstInvalidParameterSetTotalPower() throws TotalEnergyEquipmentException {
 		  firstEquipment.setTotalPower ( 400 );
 	 }
 
-	 @Test(expected = TotalEnergyEquipmentExeption.class)
-	 public void secondInvalidParameterSetTotalPower() throws TotalEnergyEquipmentExeption {
+	 @Test(expected = TotalEnergyEquipmentException.class)
+	 public void secondInvalidParameterSetTotalPower() throws TotalEnergyEquipmentException {
 		  firstEquipment.setTotalPower ( 2600 );
 	 }
 
@@ -129,8 +129,8 @@ public class HouseEquipmentTest {
 				firstEquipment.setPowerConsumption ( 600 );
 		  } catch (PowerConsumptionEquipmentException e) {
 				e.printStackTrace ();
-		  } catch (TotalEnergyEquipmentExeption totalEnergyEquipmentExeption) {
-				totalEnergyEquipmentExeption.printStackTrace ();
+		  } catch (TotalEnergyEquipmentException totalEnergyEquipmentException) {
+				totalEnergyEquipmentException.printStackTrace ();
 		  }
 
 		  assertEquals ( true, firstEquipment.equals ( secondEquipment ) );
@@ -161,8 +161,8 @@ public class HouseEquipmentTest {
 		  try {
 				firstEquipment.setTotalPower ( 900 );
 				firstEquipment.setPowerConsumption ( 600 );
-		  } catch (TotalEnergyEquipmentExeption totalEnergyEquipmentExeption) {
-				totalEnergyEquipmentExeption.printStackTrace ();
+		  } catch (TotalEnergyEquipmentException totalEnergyEquipmentException) {
+				totalEnergyEquipmentException.printStackTrace ();
 		  } catch (PowerConsumptionEquipmentException e) {
 				e.printStackTrace ();
 		  }

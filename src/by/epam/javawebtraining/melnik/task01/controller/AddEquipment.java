@@ -3,7 +3,7 @@ package by.epam.javawebtraining.melnik.task01.controller;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.MethodParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArraysException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArrayException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.logic.ShopAssistant;
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreateArrayHouseEquipment;
@@ -34,7 +34,7 @@ public class AddEquipment {
 
 		  try {
 				ShopAssistant.addEquipmetInBuilding ( shop, addedEquipment );
-		  } catch (EndArraysException e) {
+		  } catch (EndArrayException e) {
 				e.printStackTrace ();
 		  } catch (InvalidParameterException e) {
 				e.printStackTrace ();

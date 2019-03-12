@@ -1,10 +1,16 @@
 package by.epam.javawebtraining.melnik.task01.model.exception.logicexeption;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ProgectException;
+import by.epam.javawebtraining.melnik.task01.model.exception.ProjectException;
 
-public class MethodParameterException extends ProgectException {
+public class MethodParameterException extends ProjectException {
+
+//    "Method parameter isn't valid"
 
     public MethodParameterException() {
-        super("Method parameter isn't valid");
+        super();
+    }
+
+    public MethodParameterException(String message) {
+        super ( message );
     }
 }

@@ -1,12 +1,16 @@
 package by.epam.javawebtraining.melnik.task01.model.exception.logicexeption;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ProgectException;
+import by.epam.javawebtraining.melnik.task01.model.exception.ProjectException;
 
-public class InnerVolumeMicrowaveException extends ProgectException {
+public class InnerVolumeMicrowaveException extends ProjectException {
 
-    public static final String INNER_VOLUME = "Parameter Inner volume wasn't seted correctly";
+//    public static final String INNER_VOLUME = "Parameter Inner volume wasn't seted correctly";
 
     public InnerVolumeMicrowaveException() {
-        super(INNER_VOLUME);
+        super();
+    }
+
+    public InnerVolumeMicrowaveException(String message) {
+        super ( message );
     }
 }

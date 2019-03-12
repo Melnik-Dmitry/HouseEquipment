@@ -7,7 +7,7 @@ import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.Empty
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.MethodParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.FlatOwnerSurnameException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConvertArray;
+import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConversionArray;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
@@ -26,7 +26,6 @@ public class FlatOwner {
     public FlatOwner(String surname, Building flat) {
 
         if (surname == null || surname.isEmpty() || flat == null) {
-//            new ConsolePrint().print("Surname cann't be empty. Parameters were seted by default");
             this.surname = "";
             this.flat = new Flat();
             return;
@@ -83,11 +82,11 @@ public class FlatOwner {
         if (amountOfEquipments > amountOfEquipmentsInShop) {
             new ConsolePrint().print("There are only" + amountOfEquipmentsInShop + " in shop.");
 
-            returnedEquipments = ConvertArray.addElementsInDynamicArray
+            returnedEquipments = ConversionArray.addElementsIncreaseArray
                     (returnedEquipments, shop.getEquipments());
         } else {
             for (int i = 0; i < amountOfEquipments; i++) {
-                returnedEquipments = ConvertArray.addElementsInDynamicArray
+                returnedEquipments = ConversionArray.addElementsIncreaseArray
                         (returnedEquipments, shop.getEquipments()[i]);
             }
         }
@@ -101,7 +100,7 @@ public class FlatOwner {
         new CheckBuildingParameters().IsNull(equipments);
         new CheckBuildingParameters().isEmpty(equipments);
 
-        HouseEquipment[] temp = ConvertArray.addElementsInDynamicArray(flat.getEquipments(), equipments);
+        HouseEquipment[] temp = ConversionArray.addElementsIncreaseArray ( flat.getEquipments(), equipments);
         flat.setEquipments(temp);
     }
 

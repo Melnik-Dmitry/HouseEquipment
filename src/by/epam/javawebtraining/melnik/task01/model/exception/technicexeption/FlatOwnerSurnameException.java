@@ -1,12 +1,20 @@
 package by.epam.javawebtraining.melnik.task01.model.exception.technicexeption;
 
-import by.epam.javawebtraining.melnik.task01.model.exception.ProgectException;
+import by.epam.javawebtraining.melnik.task01.model.exception.ProjectException;
 
-public class FlatOwnerSurnameException extends ProgectException {
+public class FlatOwnerSurnameException extends ProjectException {
 
-    public static final String SURNAME = "Parameter surname is empty";
+//    public static final String SURNAME = "Parameter surname is empty";
 
     public FlatOwnerSurnameException() {
-        super(SURNAME);
+        super();
+    }
+
+    public FlatOwnerSurnameException(String message) {
+        super ( message );
+    }
+
+    public FlatOwnerSurnameException(Throwable cause) {
+        super ( cause );
     }
 }

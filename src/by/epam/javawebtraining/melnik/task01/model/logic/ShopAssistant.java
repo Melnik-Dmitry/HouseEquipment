@@ -5,9 +5,9 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.ShopSection;
-import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArraysException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArrayException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConvertArray;
+import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConversionArray;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
@@ -55,7 +55,7 @@ public class ShopAssistant {
 		  }
 	 }
 
-	 private static int amountNullEementsInArray(HouseEquipment[] equipments) {
+	 private static int amountNullElementsInArray(HouseEquipment[] equipments) {
 		  int result = 0;
 		  for (int i = 0; i < equipments.length; i++) {
 				if (equipments[i] == null) {
@@ -66,17 +66,17 @@ public class ShopAssistant {
 	 }
 
 	 public static void addEquipmetInBuilding(Building shop, HouseEquipment... equipm)
-			 throws EndArraysException, InvalidParameterException {
+			 throws EndArrayException, InvalidParameterException {
 
 	 	new CheckBuildingParameters().IsNull(shop);
 
 		  HouseEquipment[] equipments = shop.getEquipments ();
-		  if (equipm.length > amountNullEementsInArray ( equipments )) {
-				new ConsolePrint ().print ( "We can add only " + amountNullEementsInArray ( equipments ) + " elements." );
+		  if (equipm.length > amountNullElementsInArray ( equipments )) {
+				new ConsolePrint ().print ( "We can add only " + amountNullElementsInArray ( equipments ) + " elements." );
 		  }
 		  int j = 0;
-		  for (int i = 0; i < equipments.length; i++) {
 
+		  for (int i = 0; i < equipments.length; i++) {
 				if (equipments[i] == null) {
 					 equipments[i] = equipm[j];
 					 j++;
@@ -87,7 +87,7 @@ public class ShopAssistant {
 
 				if (equipments[equipments.length - 1] != null) {
 					 sortEquipmetForSection ( shop );
-					 throw new EndArraysException ();
+					 throw new EndArrayException ();
 				}
 		  }
 
@@ -100,7 +100,7 @@ public class ShopAssistant {
 		  new CheckBuildingParameters ().IsNull ( shop );
 
 		  HouseEquipment[] equipments = shop.getEquipments ();
-		  HouseEquipment[] tempEquipments = ConvertArray.addElementsInDynamicArray ( equipments, equipm );
+		  HouseEquipment[] tempEquipments = ConversionArray.addElementsIncreaseArray ( equipments, equipm );
 
 		  shop.setEquipments ( tempEquipments );
 		  sortEquipmetForSection ( shop );
