@@ -203,6 +203,6 @@ public class FlatOwnerTest {
             e.printStackTrace();
         }
 
-        assertEquals(microwave, defaultOwner.getFlat().getEquipments()[10]);
+        assertEquals(microwave, defaultOwner.getFlat().getEquipments()[0]);
     }
 }

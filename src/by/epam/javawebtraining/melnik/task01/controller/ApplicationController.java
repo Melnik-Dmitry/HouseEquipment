@@ -1,11 +1,11 @@
 package by.epam.javawebtraining.melnik.task01.controller;
 
 public class ApplicationController {
+
 	 public static void main(String[] args) {
 
 		  ControllerSearchPower.runSearchPower ();
-		  AddEquipment.runAddElementsInBuildingWithException ();
-		  AddEquipment.runAddElementsInBuilding ();
+		  AddEquipmentController.runAddElementsInShop();
 		  ControllerPowerControl.runPowerBuildingEquipmentControl ();
 		  ControllerSort.runSortHouseEquipment ();
 	 }

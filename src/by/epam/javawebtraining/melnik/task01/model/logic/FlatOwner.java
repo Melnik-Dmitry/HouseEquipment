@@ -7,7 +7,7 @@ import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.Empty
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.MethodParameterException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.FlatOwnerSurnameException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.model.logic.convertarray.ConversionArray;
+import by.epam.javawebtraining.melnik.task01.model.logic.conversionarray.ConversionArray;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
@@ -84,6 +84,7 @@ public class FlatOwner {
 
             returnedEquipments = ConversionArray.addElementsIncreaseArray
                     (returnedEquipments, shop.getEquipments());
+
         } else {
             for (int i = 0; i < amountOfEquipments; i++) {
                 returnedEquipments = ConversionArray.addElementsIncreaseArray
