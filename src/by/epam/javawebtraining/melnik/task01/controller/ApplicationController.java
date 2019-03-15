@@ -5,7 +5,7 @@ public class ApplicationController {
 	 public static void main(String[] args) {
 
 		  ControllerSearchPower.runSearchPower ();
-		  AddEquipmentController.runAddElementsInShop();
+		  AddEquipmentController.runAddElementsInShop ();
 		  ControllerPowerControl.runPowerBuildingEquipmentControl ();
 		  ControllerSort.runSortHouseEquipment ();
 	 }

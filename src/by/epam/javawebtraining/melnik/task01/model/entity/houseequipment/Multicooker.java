@@ -11,6 +11,7 @@ public class Multicooker extends HouseEquipment {
 	 private int amountOfProgram;
 
 	 public Multicooker() {
+		  super.setType ( HouseEquipmentType.MULTICOOKER );
 	 }
 
 	 public Multicooker(double generalPower, double powerConsumption, int amountOfProgram) {
@@ -19,6 +20,11 @@ public class Multicooker extends HouseEquipment {
 				return;
 		  }
 		  this.amountOfProgram = amountOfProgram;
+	 }
+
+	 public Multicooker(Multicooker original) {
+		  super ( original );
+		  this.amountOfProgram = original.amountOfProgram;
 	 }
 
 	 public int getAmountOfProgram() {

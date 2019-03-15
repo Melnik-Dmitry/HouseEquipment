@@ -1,6 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
-import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.*;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 
@@ -22,6 +22,30 @@ public class ShopSection {
 				return;
 		  }
 		  this.equipmentsInSection = equipmentsInSection;
+	 }
+
+	 public ShopSection (ShopSection original){
+
+		  HouseEquipment[] equipm = new HouseEquipment[original.equipmentsInSection.length];
+		  for (int i = 0; i < equipm.length; i++) {
+
+				if (original.equipmentsInSection[i] == null) {
+					 continue;
+				}
+
+				if (original.equipmentsInSection[i].getType ().equals ( HouseEquipmentType.MICROWAWE )) {
+					 equipm[i] = new Microwave ( (Microwave) original.equipmentsInSection[i] );
+
+				} else if (original.equipmentsInSection[i].getType ().equals ( HouseEquipmentType.MULTICOOKER )) {
+					 equipm[i] = new Multicooker ( (Multicooker) original.equipmentsInSection[i] );
+
+				} else {
+					 equipm[i] = new Toast ( (Toast) original.equipmentsInSection[i] );
+				}
+		  }
+
+		  this.equipmentsInSection = equipm;
+
 	 }
 
 	 public HouseEquipment[] getEquipmentsInSection() {

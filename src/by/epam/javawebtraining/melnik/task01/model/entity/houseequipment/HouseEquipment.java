@@ -19,7 +19,7 @@ public class HouseEquipment implements Cloneable {
 
 	 public HouseEquipment() {
 	 }
-	 //            new ConsolePrint ().print ( "Invalid parameter in constructor. Parameter totalPower was set by default" );
+
 	 public HouseEquipment(double totalPower, double powerConsumption, HouseEquipmentType type) {
 
 		  if ((totalPower <= MIN_TOTAL_POWER || totalPower > MAX_TOTAL_POWER)
@@ -33,6 +33,13 @@ public class HouseEquipment implements Cloneable {
 		  this.powerConsumption = powerConsumption;
 		  this.type = type;
 		  this.isTurningOn = false;
+	 }
+
+	 public HouseEquipment(HouseEquipment original) {
+	 	 this.totalPower = original.totalPower;
+	 	 this.powerConsumption =  original.powerConsumption;
+	 	 this.type = original.type;
+	 	 this.isTurningOn = original.isTurningOn;
 	 }
 
 	 public double getTotalPower() {
@@ -49,6 +56,10 @@ public class HouseEquipment implements Cloneable {
 
 	 public HouseEquipmentType getType() {
 		  return type;
+	 }
+
+	 void setType (HouseEquipmentType type){
+	 	 this.type = type;
 	 }
 
 	 public void setTotalPower(double totalPower) throws TotalEnergyEquipmentException {

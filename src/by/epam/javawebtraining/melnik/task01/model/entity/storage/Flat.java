@@ -20,6 +20,11 @@ public class Flat extends Building {
 		  this.flatsNumber = flatsNumber;
 	 }
 
+	 public Flat (Flat original){
+	 	 super(original);
+	 	 this.flatsNumber = original.flatsNumber;
+	 }
+
 	 public Flat(HouseEquipment[] equipments, int flatsNumber) {
 		  super ( equipments );
 		  if (flatsNumber < 0) {

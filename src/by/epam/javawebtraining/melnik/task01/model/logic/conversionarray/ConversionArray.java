@@ -1,8 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.logic.conversionarray;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
-import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.Toast;
-import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 

@@ -7,11 +7,17 @@ public class Toast extends HouseEquipment {
     private boolean isHasToastCooler;
 
     public Toast() {
+    	 super.setType ( HouseEquipmentType.TOAST );
     }
 
     public Toast(double generalPower, double powerConsumption, boolean isHasToastCooler) {
         super ( generalPower, powerConsumption, HouseEquipmentType.TOAST );
         this.isHasToastCooler = isHasToastCooler;
+    }
+
+    public Toast (Toast original){
+        super(original);
+        this.isHasToastCooler = original.isHasToastCooler;
     }
 
     public boolean isHasToastCooler() {

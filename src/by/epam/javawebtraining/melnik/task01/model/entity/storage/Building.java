@@ -1,6 +1,6 @@
 package by.epam.javawebtraining.melnik.task01.model.entity.storage;
 
-import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.*;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
 
@@ -21,6 +21,29 @@ public class Building {
 				return;
 		  }
 		  this.equipments = equipments;
+	 }
+
+	 public Building(Building original) {
+
+		  HouseEquipment[] equipm = new HouseEquipment[original.equipments.length];
+		  for (int i = 0; i < equipm.length; i++) {
+
+				if (original.equipments[i] == null) {
+					 continue;
+				}
+
+				if (original.equipments[i].getType ().equals ( HouseEquipmentType.MICROWAWE )) {
+					 equipm[i] = new Microwave ( (Microwave) original.equipments[i] );
+
+				} else if (original.equipments[i].getType ().equals ( HouseEquipmentType.MULTICOOKER )) {
+					 equipm[i] = new Multicooker ( (Multicooker) original.equipments[i] );
+
+				} else {
+					 equipm[i] = new Toast ( (Toast) original.equipments[i] );
+				}
+		  }
+
+		  this.equipments = equipm;
 	 }
 
 	 public HouseEquipment[] getEquipments() {

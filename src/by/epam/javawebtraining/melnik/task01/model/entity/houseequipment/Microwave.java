@@ -12,6 +12,7 @@ public class Microwave extends HouseEquipment {
 	 private int innerVolume;
 
 	 public Microwave() {
+		  super.setType ( HouseEquipmentType.MICROWAWE );
 	 }
 
 	 public Microwave(double generalPower, double powerConsumption, int innerVolume) {
@@ -20,6 +21,11 @@ public class Microwave extends HouseEquipment {
 				return;
 		  }
 		  this.innerVolume = innerVolume;
+	 }
+
+	 public Microwave(Microwave original) {
+		  super ( original );
+		  this.innerVolume = original.innerVolume;
 	 }
 
 	 public int getInnerVolume() {
