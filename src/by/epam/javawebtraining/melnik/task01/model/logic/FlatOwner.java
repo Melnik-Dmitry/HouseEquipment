@@ -13,6 +13,8 @@ import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 import java.util.Objects;
 
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
+
 public class FlatOwner {
 
     private String surname;
@@ -25,7 +27,8 @@ public class FlatOwner {
 
     public FlatOwner(String surname, Building flat) {
 
-        if (surname == null || surname.isEmpty() || flat == null) {
+        if (surname.isEmpty() || surname == null || flat == null) {
+            appLogger.info("Parameter is null. Set default capacity");
             this.surname = "";
             this.flat = new Flat();
             return;
@@ -44,14 +47,16 @@ public class FlatOwner {
 
     public void setSurname(String surname) throws FlatOwnerSurnameException {
         if (surname.isEmpty() || surname == null) {
+            appLogger.error("Invalid method parameters.");
             throw new FlatOwnerSurnameException();
         }
         this.surname = surname;
     }
 
     public void setFlat(Building flat) throws InvalidParameterException {
-        new CheckBuildingParameters().IsNull(flat);
-        this.flat = flat;
+        if (!new CheckBuildingParameters().IsNull(flat)) {
+            this.flat = flat;
+        }
     }
 
     @Override
@@ -72,6 +77,7 @@ public class FlatOwner {
             throws MethodParameterException, InvalidParameterException {
 
         if (amountOfEquipments <= 0) {
+            appLogger.error("Invalid method parameters.");
             throw new MethodParameterException();
         }
         new CheckBuildingParameters().IsNull(shop);
@@ -101,7 +107,7 @@ public class FlatOwner {
         new CheckBuildingParameters().IsNull(equipments);
         new CheckBuildingParameters().isEmpty(equipments);
 
-        HouseEquipment[] temp = ConversionArray.addElementsIncreaseArray ( flat.getEquipments(), equipments);
+        HouseEquipment[] temp = ConversionArray.addElementsIncreaseArray(flat.getEquipments(), equipments);
         flat.setEquipments(temp);
     }
 

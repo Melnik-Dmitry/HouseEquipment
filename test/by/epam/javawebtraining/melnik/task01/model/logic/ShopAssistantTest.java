@@ -43,40 +43,12 @@ public class ShopAssistantTest {
 
         try {
             ShopAssistant.addEquipmetInShop(testedBuilding, addedEquipment, addedEquipment);
-        } catch (EndArrayException e) {
-            e.printStackTrace();
         } catch (InvalidParameterException e) {
             e.printStackTrace();
         }
 
         assertArrayEquals(expected, testedBuilding.getEquipments());
     }
-
-//    @Test
-//    public void testAddEquipmetInShopChangeNotAllNullElements() {
-//        HouseEquipment[] expected = {
-//                equipments[0],
-//                addedEquipment,
-//                equipments[2],
-//                null
-//        };
-//
-//        try {
-//            ShopAssistant.addEquipmetInShop(testedBuilding, addedEquipment);
-//        } catch (EndArrayException e) {
-//            e.printStackTrace();
-//        } catch (InvalidParameterException e) {
-//            e.printStackTrace();
-//        }
-//
-//        assertArrayEquals(expected, testedBuilding.getEquipments());
-//    }
-
-//    @Test(expected = EndArrayException.class)
-//    public void testAddEquipmetInBuildingWithException() throws InvalidParameterException, EndArrayException {
-//
-//        ShopAssistant.addEquipmetInShop(testedBuilding, addedEquipment, addedEquipment, addedEquipment);
-//    }
 
     @Test(expected = InvalidParameterException.class)
     public void testAddEquipmetInShopWithNullLink() throws InvalidParameterException, EndArrayException {

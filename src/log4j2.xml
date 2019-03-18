@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO">
+
+    <Appenders>
+
+        <File name="MyFile" fileName="all.log" immediateFlush="true" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="EntityFile" fileName="entityLog.log" immediateFlush="true" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="by.epam.javawebtraining.melnik.task01.model.entity.houseequipment" level="info" additivity="true">
+            <AppenderRef ref="EntityFile"/>
+        </Logger>
+
+        <Logger name="by.epam.javawebtraining.melnik.task01.controller" level="info" additivity="true">
+            <AppenderRef ref="MyFile"/>
+        </Logger>
+
+        <!-- Root Logger -->
+        <Root level="info">
+            <!--<AppenderRef ref="MyFile"/>-->
+            <!--&lt;!&ndash;<AppenderRef ref="EntityFile"/>&ndash;&gt;-->
+        </Root>
+    </Loggers>
+
+</Configuration>

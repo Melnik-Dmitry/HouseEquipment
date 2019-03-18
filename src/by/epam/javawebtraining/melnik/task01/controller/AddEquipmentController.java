@@ -4,7 +4,6 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.exception.logicexeption.MethodParameterException;
-import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArrayException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.logic.ShopAssistant;
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreateArrayHouseEquipment;
@@ -40,17 +39,15 @@ public class AddEquipmentController {
         Print printer = PrintCreator.createPrint();
         printer.print(shop.toString());
 
-        HouseEquipment [] addedEquipments = null;
+        HouseEquipment[] addedEquipments = null;
         try {
-             addedEquipments = CreateArrayHouseEquipment.createArrayOfHouseEquipment(5);
+            addedEquipments = CreateArrayHouseEquipment.createArrayOfHouseEquipment(5);
         } catch (MethodParameterException e) {
             e.printStackTrace();
         }
 
         try {
             ShopAssistant.addEquipmetInShop((Shop) shop, addedEquipments);
-        } catch (EndArrayException e) {
-            e.printStackTrace();
         } catch (InvalidParameterException e) {
             e.printStackTrace();
         }

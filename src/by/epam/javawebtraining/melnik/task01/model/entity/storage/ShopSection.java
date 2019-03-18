@@ -6,68 +6,71 @@ import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParame
 
 import java.util.Arrays;
 
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
+
 public class ShopSection {
-	 public static final int DEFAULT_CAPACITY = 0;
+    public static final int DEFAULT_CAPACITY = 0;
 
-	 private HouseEquipment[] equipmentsInSection;
+    private HouseEquipment[] equipmentsInSection;
 
-	 public ShopSection() {
-		  equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
-	 }
+    public ShopSection() {
+        equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
+    }
 
-	 public ShopSection(HouseEquipment[] equipmentsInSection) {
+    public ShopSection(HouseEquipment[] equipmentsInSection) {
 
-		  if (equipmentsInSection == null) {
-				this.equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
-				return;
-		  }
-		  this.equipmentsInSection = equipmentsInSection;
-	 }
+        if (equipmentsInSection == null) {
+            this.equipmentsInSection = new HouseEquipment[DEFAULT_CAPACITY];
+            appLogger.info("Parameter is null. Set default capacity");
+            return;
+        }
+        this.equipmentsInSection = equipmentsInSection;
+    }
 
-	 public ShopSection (ShopSection original){
+    public ShopSection(ShopSection original) {
 
-		  HouseEquipment[] equipm = new HouseEquipment[original.equipmentsInSection.length];
-		  for (int i = 0; i < equipm.length; i++) {
+        HouseEquipment[] equipm = new HouseEquipment[original.equipmentsInSection.length];
+        for (int i = 0; i < equipm.length; i++) {
 
-				if (original.equipmentsInSection[i] == null) {
-					 continue;
-				}
+            if (original.equipmentsInSection[i] == null) {
+                continue;
+            }
 
-				if (original.equipmentsInSection[i].getType ().equals ( HouseEquipmentType.MICROWAWE )) {
-					 equipm[i] = new Microwave ( (Microwave) original.equipmentsInSection[i] );
+            if (original.equipmentsInSection[i].getType().equals(HouseEquipmentType.MICROWAWE)) {
+                equipm[i] = new Microwave((Microwave) original.equipmentsInSection[i]);
 
-				} else if (original.equipmentsInSection[i].getType ().equals ( HouseEquipmentType.MULTICOOKER )) {
-					 equipm[i] = new Multicooker ( (Multicooker) original.equipmentsInSection[i] );
+            } else if (original.equipmentsInSection[i].getType().equals(HouseEquipmentType.MULTICOOKER)) {
+                equipm[i] = new Multicooker((Multicooker) original.equipmentsInSection[i]);
 
-				} else {
-					 equipm[i] = new Toast ( (Toast) original.equipmentsInSection[i] );
-				}
-		  }
+            } else {
+                equipm[i] = new Toast((Toast) original.equipmentsInSection[i]);
+            }
+        }
 
-		  this.equipmentsInSection = equipm;
+        this.equipmentsInSection = equipm;
 
-	 }
+    }
 
-	 public HouseEquipment[] getEquipmentsInSection() {
-		  return equipmentsInSection;
-	 }
+    public HouseEquipment[] getEquipmentsInSection() {
+        return equipmentsInSection;
+    }
 
-	 public void setEquipmentsInSection(HouseEquipment[] equipmentsInSection) throws InvalidParameterException {
+    public void setEquipmentsInSection(HouseEquipment[] equipmentsInSection) throws InvalidParameterException {
+        if (new CheckBuildingParameters().IsNull(equipmentsInSection)) {
+            this.equipmentsInSection = equipmentsInSection;
+        }
+    }
 
-		  new CheckBuildingParameters ().IsNull ( equipmentsInSection );
-		  this.equipmentsInSection = equipmentsInSection;
-	 }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ShopSection)) return false;
+        ShopSection section = (ShopSection) o;
+        return Arrays.equals(equipmentsInSection, section.equipmentsInSection);
+    }
 
-	 @Override
-	 public boolean equals(Object o) {
-		  if (this == o) return true;
-		  if (!(o instanceof ShopSection)) return false;
-		  ShopSection section = (ShopSection) o;
-		  return Arrays.equals ( equipmentsInSection, section.equipmentsInSection );
-	 }
-
-	 @Override
-	 public int hashCode() {
-		  return Arrays.hashCode ( equipmentsInSection );
-	 }
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(equipmentsInSection);
+    }
 }

@@ -70,7 +70,7 @@ public class ShopAssistant {
     }
 
     public static void addEquipmetInShop(Shop shop, HouseEquipment... equipm)
-            throws EndArrayException, InvalidParameterException {
+            throws InvalidParameterException {
 
         new CheckBuildingParameters().IsNull(shop);
 
