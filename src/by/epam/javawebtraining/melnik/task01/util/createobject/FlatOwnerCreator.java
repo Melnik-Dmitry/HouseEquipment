@@ -4,7 +4,7 @@ import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.FlatOwnerSurnameException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.logic.FlatOwner;
-import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.util.checkparameter.CheckBuildingParameters;
 
 public class FlatOwnerCreator {
 

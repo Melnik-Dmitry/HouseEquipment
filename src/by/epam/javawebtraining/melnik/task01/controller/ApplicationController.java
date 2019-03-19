@@ -14,7 +14,8 @@ public class ApplicationController {
 //        AddEquipmentController.runAddElementsInShop();
 //        ControllerPowerControl.runPowerBuildingEquipmentControl();
 //        ControllerSort.runSortHouseEquipment();
-        CreateEntityFromFileController.runController ();
+//        CreateEntityFromFileController.runController ();
+        SerializationController.runSerializationController ();
 
         appLogger.info("Finish application.");
     }

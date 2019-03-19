@@ -16,6 +16,8 @@ import by.epam.javawebtraining.melnik.task01.util.createobject.PrintCreator;
 import by.epam.javawebtraining.melnik.task01.util.createobject.ShopCreator;
 import by.epam.javawebtraining.melnik.task01.view.Print;
 
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
+
 public class ControllerPowerControl {
 
 	 public static void runPowerBuildingEquipmentControl() {
@@ -30,10 +32,13 @@ public class ControllerPowerControl {
 		  } catch (FlatsNumberException e) {
 				e.printStackTrace ();
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (FlatOwnerSurnameException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (MethodParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 
@@ -44,10 +49,13 @@ public class ControllerPowerControl {
 				HouseEquipment[] temp = owner.buyHouseEquipment ( 3, shop );
 				owner.addAllHouseEquipmentInFlat ( temp );
 		  } catch (EmptyListException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (MethodParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 
@@ -64,8 +72,10 @@ public class ControllerPowerControl {
 				printer.print ( new PowerBuildingEquipmentControl ().deemTotalPower ( flat ) + "" );
 				printer.print ( new PowerBuildingEquipmentControl ().deemPowerConsumption ( flat ) + "" );
 		  } catch (EmptyListException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 	 }

@@ -5,64 +5,72 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-public class ProjectDeSerialization <T> {
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
 
-    public T readProjectEntity (String filePath) {
+public class ProjectDeSerialization<T> {
 
-        T o = null;
-        ObjectInputStream objectOutputStream = null;
-        try {
-            objectOutputStream =
-                    new ObjectInputStream(
-                            new BufferedInputStream(
-                                    new FileInputStream(filePath)
-                            )
-                    );
+	 public T readProjectEntity(String filePath) {
 
-            o = (T) objectOutputStream.readObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (objectOutputStream != null) {
-                try {
-                    objectOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return o;
-    }
+		  T o = null;
+		  ObjectInputStream objectOutputStream = null;
+		  try {
+				objectOutputStream =
+						  new ObjectInputStream (
+									 new BufferedInputStream (
+												new FileInputStream ( filePath )
+									 )
+						  );
 
-    public T[] readProjectEntityArray(String filePath) {
+				o = (T) objectOutputStream.readObject ();
+		  } catch (IOException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  } catch (ClassNotFoundException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  } finally {
+				if (objectOutputStream != null) {
+					 try {
+						  objectOutputStream.close ();
+					 } catch (IOException e) {
+						  appLogger.error ( e );
+						  e.printStackTrace ();
+					 }
+				}
+		  }
+		  return o;
+	 }
 
-        T[] o = null;
-        ObjectInputStream objectOutputStream = null;
-        try {
-            objectOutputStream =
-                    new ObjectInputStream(
-                            new BufferedInputStream(
-                                    new FileInputStream(filePath)
-                            )
-                    );
+	 public T[] readProjectEntityArray(String filePath) {
 
-            o = (T[]) objectOutputStream.readObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (objectOutputStream != null) {
-                try {
-                    objectOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return o;
-    }
+		  T[] o = null;
+		  ObjectInputStream objectOutputStream = null;
+		  try {
+				objectOutputStream =
+						  new ObjectInputStream (
+									 new BufferedInputStream (
+												new FileInputStream ( filePath )
+									 )
+						  );
+
+				o = (T[]) objectOutputStream.readObject ();
+		  } catch (IOException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  } catch (ClassNotFoundException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  } finally {
+				if (objectOutputStream != null) {
+					 try {
+						  objectOutputStream.close ();
+					 } catch (IOException e) {
+						  appLogger.error ( e );
+						  e.printStackTrace ();
+					 }
+				}
+		  }
+		  return o;
+	 }
 }
 

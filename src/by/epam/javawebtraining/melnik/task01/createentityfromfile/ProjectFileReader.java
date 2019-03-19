@@ -5,9 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileEquipmentReader {
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
 
-	 public static String readFile(String filePath) throws IOException {
+public class ProjectFileReader {
+
+	 public static String readFile(String filePath) {
 
 		  BufferedReader bufferedReader = null;
 		  StringBuilder builder = null;
@@ -21,9 +23,19 @@ public class FileEquipmentReader {
 					 builder.append ( readedString );
 				}
 		  } catch (FileNotFoundException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  } catch (IOException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } finally {
-				bufferedReader.close ();
+				try {
+					 if (bufferedReader != null) {
+						  bufferedReader.close ();
+					 }
+				} catch (IOException e) {
+					 appLogger.error ( e );
+				}
 		  }
 
 		  return builder.toString ();

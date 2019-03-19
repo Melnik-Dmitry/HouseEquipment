@@ -10,6 +10,8 @@ import by.epam.javawebtraining.melnik.task01.util.createobject.PrintCreator;
 import by.epam.javawebtraining.melnik.task01.util.createobject.ShopCreator;
 import by.epam.javawebtraining.melnik.task01.view.Print;
 
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
+
 public class ControllerSearchPower {
 
 	 public static void runSearchPower() {
@@ -19,8 +21,10 @@ public class ControllerSearchPower {
 				shop = ShopCreator.createShopWithParameter
 						  ( CreateArrayHouseEquipment.createArrayOfHouseEquipment ( 5 ) );
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (MethodParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 
@@ -33,8 +37,10 @@ public class ControllerSearchPower {
 				printer.print ( "Min total energy in shop - " );
 				printer.print ( (new SearchParameterTotalEnergy ().takeEquipmentWithMinPower ( shop )).toString () );
 		  } catch (EmptyListException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 	 }

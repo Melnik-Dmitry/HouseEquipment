@@ -10,48 +10,42 @@ import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreateArr
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.CreatorHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.util.createhouseequipment.entityrandomparameter.RandomTypeOfHouseEquipment;
 import by.epam.javawebtraining.melnik.task01.util.createobject.PrintCreator;
-import by.epam.javawebtraining.melnik.task01.util.createobject.ShopCreator;
 import by.epam.javawebtraining.melnik.task01.view.Print;
+
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
 
 public class AddEquipmentController {
 
-    public static void runAddElementsInShop() {
-        HouseEquipment[] equipments = {
-                CreatorHouseEquipment.createHouseEquipment
-                        (RandomTypeOfHouseEquipment.makeHouseEquipmentType()),
-                null,
-                CreatorHouseEquipment.createHouseEquipment
-                        (RandomTypeOfHouseEquipment.makeHouseEquipmentType()),
-                null
-        };
+	 public static void runAddElementsInShop() {
+		  HouseEquipment[] equipments = {
+					 CreatorHouseEquipment.createHouseEquipment
+								( RandomTypeOfHouseEquipment.makeHouseEquipmentType () ),
+					 null,
+					 CreatorHouseEquipment.createHouseEquipment
+								( RandomTypeOfHouseEquipment.makeHouseEquipmentType () ),
+					 null
+		  };
 
-        Building shop = new Shop(equipments);
+		  Building shop = new Shop ( equipments );
 
-//        Building shop = null;
-//        try {
-//            shop = ShopCreator.createShopWithParameter
-//                    (CreateArrayHouseEquipment.createArrayOfHouseEquipment(5));
-//        } catch (InvalidParameterException e) {
-//            e.printStackTrace();
-//        } catch (MethodParameterException e) {
-//            e.printStackTrace();
-//        }
-        Print printer = PrintCreator.createPrint();
-        printer.print(shop.toString());
+		  Print printer = PrintCreator.createPrint ();
+		  printer.print ( shop.toString () );
 
-        HouseEquipment[] addedEquipments = null;
-        try {
-            addedEquipments = CreateArrayHouseEquipment.createArrayOfHouseEquipment(5);
-        } catch (MethodParameterException e) {
-            e.printStackTrace();
-        }
+		  HouseEquipment[] addedEquipments = null;
+		  try {
+				addedEquipments = CreateArrayHouseEquipment.createArrayOfHouseEquipment ( 5 );
+		  } catch (MethodParameterException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  }
 
-        try {
-            ShopAssistant.addEquipmetInShop((Shop) shop, addedEquipments);
-        } catch (InvalidParameterException e) {
-            e.printStackTrace();
-        }
+		  try {
+				ShopAssistant.addEquipmetInShop ( (Shop) shop, addedEquipments );
+		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
+				e.printStackTrace ();
+		  }
 
-        printer.print(shop.toString());
-    }
+		  printer.print ( shop.toString () );
+	 }
 }

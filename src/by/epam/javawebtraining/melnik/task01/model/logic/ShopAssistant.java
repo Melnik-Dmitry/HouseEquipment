@@ -5,10 +5,9 @@ import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEq
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Building;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.ShopSection;
-import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.EndArrayException;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.model.logic.conversionarray.ConversionArray;
-import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.util.checkparameter.CheckBuildingParameters;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
 public class ShopAssistant {

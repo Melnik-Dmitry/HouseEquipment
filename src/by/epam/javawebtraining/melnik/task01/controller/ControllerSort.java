@@ -9,16 +9,20 @@ import by.epam.javawebtraining.melnik.task01.util.createobject.PrintCreator;
 import by.epam.javawebtraining.melnik.task01.util.createobject.ShopCreator;
 import by.epam.javawebtraining.melnik.task01.view.Print;
 
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
+
 public class ControllerSort {
 
-	 public static void runSortHouseEquipment(){
+	 public static void runSortHouseEquipment() {
 		  Building shop = null;
 		  try {
 				shop = ShopCreator.createShopWithParameter
 						  ( CreateArrayHouseEquipment.createArrayOfHouseEquipment ( 5 ) );
 		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  } catch (MethodParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
 
@@ -28,7 +32,8 @@ public class ControllerSort {
 		  try {
 				new SortHouseEquipment ().increasingSort ( shop );
 		  } catch (InvalidParameterException e) {
-				e.printStackTrace();
+				appLogger.error ( e );
+				e.printStackTrace ();
 		  }
 		  printer.print ( "Increasing sort in shop - " );
 		  printer.print ( shop.toString () );
@@ -36,7 +41,8 @@ public class ControllerSort {
 		  try {
 				new SortHouseEquipment ().descendingSort ( shop );
 		  } catch (InvalidParameterException e) {
-				e.printStackTrace();
+				appLogger.error ( e );
+				e.printStackTrace ();
 		  }
 		  printer.print ( "Descending sort in shop - " );
 		  printer.print ( shop.toString () );

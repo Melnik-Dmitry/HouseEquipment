@@ -3,7 +3,7 @@ package by.epam.javawebtraining.melnik.task01.util.createobject;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
 import by.epam.javawebtraining.melnik.task01.model.entity.storage.Shop;
 import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
-import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParameters;
+import by.epam.javawebtraining.melnik.task01.util.checkparameter.CheckBuildingParameters;
 
 public class ShopCreator {
 

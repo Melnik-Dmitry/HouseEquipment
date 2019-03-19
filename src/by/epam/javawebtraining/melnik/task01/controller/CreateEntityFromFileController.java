@@ -1,13 +1,17 @@
 package by.epam.javawebtraining.melnik.task01.controller;
 
-import by.epam.javawebtraining.melnik.task01.createentityfromfile.FileEquipmentReader;
+import by.epam.javawebtraining.melnik.task01.createentityfromfile.ProjectFileReader;
 import by.epam.javawebtraining.melnik.task01.createentityfromfile.createentity.HouseEquipmentArrayCreator;
 import by.epam.javawebtraining.melnik.task01.createentityfromfile.splitstring.StringSplit;
 import by.epam.javawebtraining.melnik.task01.createentityfromfile.validation.MakeValidHouseEquipmentData;
+import by.epam.javawebtraining.melnik.task01.createentityfromfile.validation.houseequipmentvalidation.MicrowaveValidator;
+import by.epam.javawebtraining.melnik.task01.createentityfromfile.validation.houseequipmentvalidation.MulticookerValidator;
+import by.epam.javawebtraining.melnik.task01.createentityfromfile.validation.houseequipmentvalidation.ToastValidator;
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
 import by.epam.javawebtraining.melnik.task01.view.ConsolePrint;
 
-import java.io.IOException;
+import static by.epam.javawebtraining.melnik.task01.controller.ApplicationController.appLogger;
 
 public class CreateEntityFromFileController {
 
@@ -15,17 +19,25 @@ public class CreateEntityFromFileController {
 
 		  String fromFile = "";
 
+		  fromFile = ProjectFileReader.readFile
+					 ( "D:\\Java\\EPAM\\WebTraining\\HouseEquipment\\src\\by\\epam\\javawebtraining\\melnik\\task01\\createentityfromfile\\HouseEquipmentsFile.txt" );
+
+		  String[] splitDatafromFile = null;
+		  String[] validData = null;
+		  HouseEquipment[] equipments = null;
+
 		  try {
-				fromFile = FileEquipmentReader.readFile
-						  ( "D:\\Java\\EPAM\\WebTraining\\HouseEquipment\\src\\by\\epam\\javawebtraining\\melnik\\task01\\createentityfromfile\\HouseEquipmentsFile.txt" );
-		  } catch (IOException e) {
+				splitDatafromFile = StringSplit.splitString ( fromFile, "\\." );
+
+				validData = MakeValidHouseEquipmentData.makeValidDate
+						  ( splitDatafromFile,
+							 new MicrowaveValidator (), new MulticookerValidator (), new ToastValidator () );
+
+				equipments = HouseEquipmentArrayCreator.makeArray ( validData );
+		  } catch (InvalidParameterException e) {
+				appLogger.error ( e );
 				e.printStackTrace ();
 		  }
-
-		  String[] validData = MakeValidHouseEquipmentData.makeValidDate
-					 ( StringSplit.splitString ( fromFile, "\\." ) );
-
-		  HouseEquipment[] equipments = HouseEquipmentArrayCreator.makeArray ( validData );
 
 		  for (int i = 0; i < equipments.length; i++) {
 				new ConsolePrint ().print ( equipments[i] + "" );

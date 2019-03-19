@@ -1,19 +1,21 @@
 package by.epam.javawebtraining.melnik.task01.createentityfromfile.createentity;
 
 import by.epam.javawebtraining.melnik.task01.model.entity.houseequipment.HouseEquipment;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.InvalidParameterException;
+import by.epam.javawebtraining.melnik.task01.model.exception.technicexeption.NullLinkException;
 
 import java.util.regex.Pattern;
 
 public class HouseEquipmentArrayCreator {
 
-	 public static HouseEquipment[] makeArray(String[] data) {
+	 public static HouseEquipment[] makeArray(String[] data) throws InvalidParameterException {
+
+	 	 if (data == null){
+	 	 	 throw new InvalidParameterException ( new NullLinkException () );
+		 }
+
 		  HouseEquipment[] array = new HouseEquipment[data.length];
 
-//		  Pattern microwavePattern = Pattern.compile ( "MICROWAVE" );
-//		  Pattern multicookerPattern = Pattern.compile ( "MULTICOOKER" );
-//		  Pattern toastPattern = Pattern.compile ("TOAST");
-
-//		  Matcher cv1 = microwavePattern.matcher ( data[i] );
 		  for (int i = 0; i < data.length; i++) {
 				if (Pattern.compile ( "MICROWAVE" ).matcher ( data[i] ).find ()) {
 					 array[i] = new MicrowaveCreator ().makeHouseEquipment ( data[i] );
