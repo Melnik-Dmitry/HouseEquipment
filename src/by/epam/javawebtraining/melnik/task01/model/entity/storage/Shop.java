@@ -65,9 +65,9 @@ public class Shop extends Building {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Shop)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Shop)) {return false;}
+        if (!super.equals(o)) {return false;}
         Shop shop = (Shop) o;
         return microwaveSection.equals(shop.microwaveSection) &&
                 multicookerSection.equals(shop.multicookerSection) &&

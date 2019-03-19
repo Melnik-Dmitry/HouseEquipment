@@ -45,9 +45,9 @@ public class Microwave extends HouseEquipment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Microwave)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Microwave)) {return false;}
+        if (!super.equals(o)) {return false;}
         Microwave microwave = (Microwave) o;
         return innerVolume == microwave.innerVolume;
     }

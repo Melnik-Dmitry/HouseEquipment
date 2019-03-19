@@ -93,8 +93,8 @@ public class HouseEquipment implements Cloneable, Serializable{
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof HouseEquipment)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof HouseEquipment)) {return false;}
         HouseEquipment that = (HouseEquipment) o;
         return Double.compare(that.totalPower, totalPower) == 0 &&
                 Double.compare(that.powerConsumption, powerConsumption) == 0 &&

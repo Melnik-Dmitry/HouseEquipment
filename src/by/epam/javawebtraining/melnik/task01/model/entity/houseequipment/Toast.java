@@ -30,9 +30,9 @@ public class Toast extends HouseEquipment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Toast)) return false;
-        if (!super.equals ( o )) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Toast)) {return false;}
+        if (!super.equals ( o )) {return false;}
         Toast toast = (Toast) o;
         return isHasToastCooler == toast.isHasToastCooler;
     }

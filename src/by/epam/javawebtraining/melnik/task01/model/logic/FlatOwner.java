@@ -61,8 +61,8 @@ public class FlatOwner {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof FlatOwner)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof FlatOwner)) {return false;}
         FlatOwner flatOwner = (FlatOwner) o;
         return surname.equals(flatOwner.surname) &&
                 flat.equals(flatOwner.flat);

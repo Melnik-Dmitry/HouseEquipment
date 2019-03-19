@@ -2,5 +2,5 @@ package by.epam.javawebtraining.melnik.task01.createentityfromfile.validation.ho
 
 public interface HouseEquipmentValidator {
 
-	 String check(String checkedString, String regEx);
+	 boolean check(String checkedString);
 }

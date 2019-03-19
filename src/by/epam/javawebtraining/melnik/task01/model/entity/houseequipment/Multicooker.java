@@ -44,9 +44,9 @@ public class Multicooker extends HouseEquipment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Multicooker)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Multicooker)) {return false;}
+        if (!super.equals(o)) {return false;}
         Multicooker that = (Multicooker) o;
         return amountOfProgram == that.amountOfProgram;
     }

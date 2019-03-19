@@ -61,8 +61,8 @@ public class Building {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Building)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Building)) {return false;}
         Building building = (Building) o;
         return Arrays.equals(equipments, building.equipments);
     }

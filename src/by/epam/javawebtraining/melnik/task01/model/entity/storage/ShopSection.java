@@ -63,8 +63,8 @@ public class ShopSection {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ShopSection)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof ShopSection)) {return false;}
         ShopSection section = (ShopSection) o;
         return Arrays.equals(equipmentsInSection, section.equipmentsInSection);
     }

@@ -8,7 +8,6 @@ import by.epam.javawebtraining.melnik.task01.util.validation.CheckBuildingParame
 
 public class SearchParameterPowerConsumption implements SearchParameterPower<HouseEquipment> {
 
-
     private HouseEquipment minHouseEquipment(HouseEquipment[] equipments)
             throws InvalidParameterException, EmptyListException {
 

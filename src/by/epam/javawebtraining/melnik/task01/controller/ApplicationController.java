@@ -10,11 +10,11 @@ public class ApplicationController {
     public static void main(String[] args) {
         appLogger.info("Start application");
 
-        ControllerSearchPower.runSearchPower();
-        AddEquipmentController.runAddElementsInShop();
-        ControllerPowerControl.runPowerBuildingEquipmentControl();
-        ControllerSort.runSortHouseEquipment();
-
+//        ControllerSearchPower.runSearchPower();
+//        AddEquipmentController.runAddElementsInShop();
+//        ControllerPowerControl.runPowerBuildingEquipmentControl();
+//        ControllerSort.runSortHouseEquipment();
+        CreateEntityFromFileController.runController ();
 
         appLogger.info("Finish application.");
     }

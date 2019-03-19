@@ -1,7 +1,5 @@
 package by.epam.javawebtraining.melnik.task01.createentityfromfile;
 
-import by.epam.javawebtraining.melnik.task01.createentityfromfile.splitstring.StringSplit;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,23 +27,5 @@ public class FileEquipmentReader {
 		  }
 
 		  return builder.toString ();
-	 }
-
-	 public static void main(String[] args) {
-		  String path = "D:\\Java\\EPAM\\WebTraining\\HouseEquipment\\src\\by\\epam\\javawebtraining\\melnik\\task01" +
-					 "\\createentityfromfile\\HouseEquipmentsFile.txt";
-
-		  String sd = "";
-
-		  try {
-				sd = FileEquipmentReader.readFile ( path );
-		  } catch (IOException e) {
-				e.printStackTrace ();
-		  }
-
-		  String [] cv = StringSplit.splitString ( sd, "\\." );
-
-
-		  System.out.println ();
 	 }
 }

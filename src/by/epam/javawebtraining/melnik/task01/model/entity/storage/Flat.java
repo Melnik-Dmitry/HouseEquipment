@@ -51,9 +51,9 @@ public class Flat extends Building {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Flat)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {return true;}
+        if (!(o instanceof Flat)) {return false;}
+        if (!super.equals(o)) {return false;}
         Flat flat = (Flat) o;
         return flatsNumber == flat.flatsNumber;
     }
