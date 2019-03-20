@@ -1,2 +1,6 @@
-14:18:52.201 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Start application
-14:18:52.257 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Finish application.
+11:46:21.535 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Start application
+11:46:21.553 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Invalid constructor parameters. Default values
+11:46:21.553 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Invalid constructor parameters. Default values
+11:46:21.553 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Invalid constructor parameters. Default values
+11:46:21.554 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Invalid constructor parameters. Default values
+11:46:21.596 [main] INFO  by.epam.javawebtraining.melnik.task01.controller.ApplicationController - Finish application.
