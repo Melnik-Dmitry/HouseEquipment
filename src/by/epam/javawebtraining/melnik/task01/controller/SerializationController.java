@@ -21,7 +21,7 @@ public class SerializationController {
 				e.printStackTrace ();
 		  }
 
-		  String filePath = "D:\\Java\\EPAM\\WebTraining\\HouseEquipment\\src\\entitySerializationFile.txt";
+		  String filePath = "D:\\HouseEquipment\\src\\entitySerializationFile.txt";
 
 		  new ProjectSerialization<HouseEquipment> ().writeProjectEntityArray ( filePath, equipments );
 

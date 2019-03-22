@@ -20,7 +20,7 @@ public class CreateEntityFromFileController {
 		  String fromFile = "";
 
 		  fromFile = ProjectFileReader.readFile
-					 ( "D:\\Java\\EPAM\\WebTraining\\HouseEquipment\\src\\by\\epam\\javawebtraining\\melnik\\task01\\createentityfromfile\\HouseEquipmentsFile.txt" );
+					 ( "D:\\HouseEquipment\\src\\by\\epam\\javawebtraining\\melnik\\task01\\createentityfromfile\\HouseEquipmentsFile.txt" );
 
 		  String[] splitDatafromFile = null;
 		  String[] validData = null;
